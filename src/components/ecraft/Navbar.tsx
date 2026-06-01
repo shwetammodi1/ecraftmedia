@@ -24,57 +24,58 @@ export default function Navbar() {
   const handleNavClick = (href: string) => {
     setMobileOpen(false)
     const target = document.querySelector(href)
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' })
-    }
+    if (target) target.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#0A0F1E]/90 backdrop-blur-xl border-b border-white/10 shadow-2xl'
+          ? 'bg-[#0A0F1E]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl'
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      {/* Top bar — logo + phone + CTA */}
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <a
             href="#home"
             onClick={(e) => { e.preventDefault(); handleNavClick('#home') }}
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-2 group flex-shrink-0"
           >
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center"
-              style={{ background: 'linear-gradient(135deg, #F5A623, #6C63FF)' }}>
-              <span className="text-white font-display font-bold text-base">E</span>
+            <div
+              className="w-8 h-8 rounded-lg flex items-center justify-center"
+              style={{ background: 'linear-gradient(135deg, #F5A623, #6C63FF)' }}
+            >
+              <span className="text-white font-display font-bold text-sm">E</span>
             </div>
-            <span className="font-display font-bold text-xl text-white group-hover:text-[#F5A623] transition-colors duration-300">
+            <span className="font-display font-bold text-lg text-white group-hover:text-[#F5A623] transition-colors duration-300 whitespace-nowrap">
               Ecraft <span className="text-[#F5A623]">Media</span>
             </span>
           </a>
 
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1">
+          {/* Desktop: nav links centered */}
+          <div className="hidden lg:flex items-center gap-0.5 flex-1 justify-center px-4">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={(e) => { e.preventDefault(); handleNavClick(link.href) }}
-                className="px-3 py-2 text-sm text-gray-300 hover:text-[#F5A623] transition-colors duration-300 rounded-lg hover:bg-white/5 font-medium"
+                className="px-2.5 py-1.5 text-xs font-medium text-gray-300 hover:text-[#F5A623] transition-colors duration-300 rounded-lg hover:bg-white/5 whitespace-nowrap"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          {/* Right Side */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Right: phone + CTA */}
+          <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
             <a
               href="tel:+918850183944"
-              className="flex items-center gap-2 text-sm text-gray-300 hover:text-[#F5A623] transition-colors duration-300"
+              className="flex items-center gap-1.5 text-xs text-gray-300 hover:text-[#F5A623] transition-colors duration-300 whitespace-nowrap"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
@@ -83,19 +84,20 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={(e) => { e.preventDefault(); handleNavClick('#contact') }}
-              className="btn-gold text-sm px-5 py-2.5"
+              className="inline-flex items-center justify-center px-4 py-2 rounded-full font-semibold text-xs text-[#0A0F1E] whitespace-nowrap transition-all duration-300 hover:-translate-y-0.5"
+              style={{ background: 'linear-gradient(135deg, #F5A623, #F7B94A)', boxShadow: '0 0 16px rgba(245,166,35,0.35)' }}
             >
               Get Started
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile hamburger */}
           <button
             className="lg:hidden p-2 text-gray-300 hover:text-white transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
-            <div className="w-6 flex flex-col gap-1.5">
+            <div className="w-5 flex flex-col gap-1.5">
               <span className={`block h-0.5 bg-current transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-2' : ''}`} />
               <span className={`block h-0.5 bg-current transition-all duration-300 ${mobileOpen ? 'opacity-0' : ''}`} />
               <span className={`block h-0.5 bg-current transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-2' : ''}`} />
@@ -112,13 +114,13 @@ export default function Navbar() {
               key={link.label}
               href={link.href}
               onClick={(e) => { e.preventDefault(); handleNavClick(link.href) }}
-              className="block px-4 py-3 text-gray-300 hover:text-[#F5A623] hover:bg-white/5 rounded-xl transition-all duration-300 font-medium"
+              className="block px-4 py-3 text-sm text-gray-300 hover:text-[#F5A623] hover:bg-white/5 rounded-xl transition-all duration-300 font-medium"
             >
               {link.label}
             </a>
           ))}
           <div className="pt-3 border-t border-white/10 flex flex-col gap-3">
-            <a href="tel:+918850183944" className="flex items-center gap-2 px-4 py-2 text-gray-300">
+            <a href="tel:+918850183944" className="flex items-center gap-2 px-4 py-2 text-sm text-gray-300">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -128,7 +130,8 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={(e) => { e.preventDefault(); handleNavClick('#contact') }}
-              className="btn-gold w-full text-center"
+              className="w-full text-center py-3 rounded-full font-semibold text-sm text-[#0A0F1E]"
+              style={{ background: 'linear-gradient(135deg, #F5A623, #F7B94A)' }}
             >
               Get Started
             </a>
