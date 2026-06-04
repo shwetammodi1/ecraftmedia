@@ -1,224 +1,121 @@
-import { useState } from 'react'
-import { useScrollAnimation } from '../../hooks/useScrollAnimation'
+import { useState, useRef, useEffect } from 'react'
 
-const services = [
-  'SEO Services',
-  'Web Development',
-  'App Development',
-  'Digital Marketing',
-  'Social Media Marketing',
-  'PPC / Google Ads',
-  'Content Marketing',
-  'Other',
-]
-
-interface FormState {
-  name: string
-  email: string
-  phone: string
-  service: string
-  message: string
-}
+const services = ['SEO Services', 'Web Development', 'App Development', 'Digital Marketing', 'Google / Meta Ads', 'Content Marketing', 'Other']
 
 export default function ContactForm() {
-  const titleRef = useScrollAnimation()
-  const formRef = useScrollAnimation()
-  const infoRef = useScrollAnimation()
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) el.classList.add('in-view') }, { threshold: 0.1 })
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
 
-  const [form, setForm] = useState<FormState>({ name: '', email: '', phone: '', service: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-  }
+  const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' })
+  const [state, setState] = useState<'idle' | 'loading' | 'done'>('idle')
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-      setSubmitted(true)
-    }, 1500)
+    setState('loading')
+    setTimeout(() => setState('done'), 1600)
   }
 
   return (
-    <section id="contact" className="py-24 px-4 relative overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-30 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 100%, rgba(245,166,35,0.1) 0%, transparent 60%)' }}
-      />
+    <section id="contact" className="py-28 px-4 relative overflow-hidden">
+      <div className="orb w-[600px] h-[600px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.07]"
+        style={{ background: 'radial-gradient(circle, #F59E0B, transparent)' }} />
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div ref={titleRef} className="animate-on-scroll text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium text-[#F5A623] border border-[#F5A623]/30 bg-[#F5A623]/10 mb-4">
-            Get In Touch
-          </span>
-          <h2 className="section-title">
-            Let's Grow Your{' '}
-            <span className="text-gradient-gold">Business Together</span>
+      <div className="max-w-[1320px] mx-auto relative z-10">
+        <div ref={ref} className="fade-up text-center mb-16">
+          <div className="section-tag mx-auto mb-5">Get In Touch</div>
+          <h2 className="font-display font-black text-4xl sm:text-5xl xl:text-6xl text-white leading-tight mb-5">
+            Let's Build Something<br />
+            <span className="text-gold">Extraordinary</span>
           </h2>
-          <p className="section-subtitle mx-auto">
-            Tell us about your project and we'll get back to you within 24 hours with a tailored strategy.
+          <p className="text-slate-400 text-lg max-w-xl mx-auto">
+            Tell us about your project. We'll get back to you within 24 hours with a tailored strategy.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-          {/* Contact Info */}
-          <div ref={infoRef} className="animate-on-scroll lg:col-span-2 space-y-6">
-            <div
-              className="rounded-3xl p-8"
-              style={{ background: 'linear-gradient(135deg, rgba(245,166,35,0.1), rgba(108,99,255,0.1))', border: '1px solid rgba(255,255,255,0.1)' }}
-            >
-              <h3 className="font-display font-bold text-2xl text-white mb-6">Contact Info</h3>
-              <div className="space-y-5">
-                <ContactItem
-                  icon={
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                  }
-                  label="Phone"
-                  value="+91 8850183944"
-                  href="tel:+918850183944"
-                />
-                <ContactItem
-                  icon={
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  }
-                  label="Email"
-                  value="info@ecraftmedia.com"
-                  href="mailto:info@ecraftmedia.com"
-                />
-                <ContactItem
-                  icon={
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  }
-                  label="Location"
-                  value="Mumbai, Maharashtra, India"
-                />
+        <div className="grid lg:grid-cols-5 gap-8">
+          {/* Info column */}
+          <div className="lg:col-span-2 space-y-5">
+            <InfoCard icon="📞" label="Phone" value="+91 88501 83944" href="tel:+918850183944" color="#F59E0B" />
+            <InfoCard icon="✉️" label="Email" value="info@ecraftmedia.com" href="mailto:info@ecraftmedia.com" color="#8B5CF6" />
+            <InfoCard icon="📍" label="Location" value="Mumbai, Maharashtra, India" color="#10B981" />
+
+            {/* Hours */}
+            <div className="card rounded-2xl p-6">
+              <h4 className="font-semibold text-white text-sm mb-4">Working Hours</h4>
+              <div className="space-y-2.5 text-[13px]">
+                {[
+                  { d: 'Monday – Friday', h: '9:00 AM – 7:00 PM' },
+                  { d: 'Saturday', h: '10:00 AM – 5:00 PM' },
+                  { d: 'Sunday', h: 'Closed' },
+                ].map(row => (
+                  <div key={row.d} className="flex justify-between">
+                    <span className="text-slate-500">{row.d}</span>
+                    <span className={row.h === 'Closed' ? 'text-slate-600' : 'text-gold font-medium'}>{row.h}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div
-              className="rounded-3xl p-8"
-              style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
-            >
-              <h4 className="font-semibold text-white mb-4">Working Hours</h4>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between text-gray-400">
-                  <span>Monday – Friday</span>
-                  <span className="text-[#F5A623]">9:00 AM – 7:00 PM</span>
-                </div>
-                <div className="flex justify-between text-gray-400">
-                  <span>Saturday</span>
-                  <span className="text-[#F5A623]">10:00 AM – 5:00 PM</span>
-                </div>
-                <div className="flex justify-between text-gray-400">
-                  <span>Sunday</span>
-                  <span className="text-gray-600">Closed</span>
-                </div>
-              </div>
+            {/* CTA card */}
+            <div className="card rounded-2xl p-6"
+              style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.08), rgba(139,92,246,0.06))', border: '1px solid rgba(245,158,11,0.15)' }}>
+              <div className="font-display font-bold text-white text-lg mb-2">Free Strategy Call</div>
+              <p className="text-slate-400 text-sm mb-4">Book a 30-min free consultation with our experts.</p>
+              <a href="tel:+918850183944"
+                className="btn-primary text-sm px-5 py-2.5 inline-flex w-full justify-center">
+                📞 Call Now
+              </a>
             </div>
           </div>
 
           {/* Form */}
-          <div ref={formRef} className="animate-on-scroll lg:col-span-3">
-            {submitted ? (
-              <div
-                className="rounded-3xl p-12 flex flex-col items-center justify-center text-center h-full"
-                style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(16,185,129,0.05))', border: '1px solid rgba(16,185,129,0.3)' }}
-              >
-                <div className="w-20 h-20 rounded-full flex items-center justify-center mb-6"
-                  style={{ background: 'rgba(16,185,129,0.2)', border: '2px solid rgba(16,185,129,0.5)' }}>
-                  <svg className="w-10 h-10 text-[#10B981]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
+          <div className="lg:col-span-3">
+            {state === 'done' ? (
+              <div className="card rounded-[24px] p-12 flex flex-col items-center justify-center text-center h-full min-h-[400px]"
+                style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.08), rgba(16,185,129,0.04))', border: '1px solid rgba(16,185,129,0.2)' }}>
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mb-6 text-4xl"
+                  style={{ background: 'rgba(16,185,129,0.15)' }}>✅</div>
                 <h3 className="font-display font-bold text-2xl text-white mb-3">Message Sent!</h3>
-                <p className="text-gray-400">Thank you for reaching out. Our team will contact you within 24 hours.</p>
+                <p className="text-slate-400 text-sm max-w-sm">Thank you for reaching out. Our team will contact you within 24 hours with a personalized strategy.</p>
               </div>
             ) : (
-              <form
-                onSubmit={handleSubmit}
-                className="rounded-3xl p-8"
-                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
-              >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                  <FormField label="Your Name" required>
-                    <input
-                      type="text"
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      placeholder="John Doe"
-                      required
-                      className="form-input"
-                      style={inputStyle}
-                    />
-                  </FormField>
-                  <FormField label="Email Address" required>
-                    <input
-                      type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="john@company.com"
-                      required
-                      className="form-input"
-                      style={inputStyle}
-                    />
-                  </FormField>
-                  <FormField label="Phone Number">
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={form.phone}
-                      onChange={handleChange}
-                      placeholder="+91 98765 43210"
-                      style={inputStyle}
-                    />
-                  </FormField>
-                  <FormField label="Service Interested In">
-                    <select
-                      name="service"
-                      value={form.service}
-                      onChange={handleChange}
-                      style={{ ...inputStyle, appearance: 'none' }}
-                    >
+              <form onSubmit={handleSubmit} className="card rounded-[24px] p-8 space-y-5">
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <Field label="Your Name" required>
+                    <input type="text" placeholder="Rahul Sharma" required
+                      value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} />
+                  </Field>
+                  <Field label="Email Address" required>
+                    <input type="email" placeholder="rahul@company.com" required
+                      value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} />
+                  </Field>
+                  <Field label="Phone Number">
+                    <input type="tel" placeholder="+91 98765 43210"
+                      value={form.phone} onChange={e => setForm(p => ({ ...p, phone: e.target.value }))} />
+                  </Field>
+                  <Field label="Service Required">
+                    <select value={form.service} onChange={e => setForm(p => ({ ...p, service: e.target.value }))}>
                       <option value="">Select a service...</option>
-                      {services.map((s) => (
-                        <option key={s} value={s}>{s}</option>
-                      ))}
+                      {services.map(s => <option key={s}>{s}</option>)}
                     </select>
-                  </FormField>
+                  </Field>
                 </div>
-                <FormField label="Your Message" required>
-                  <textarea
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    placeholder="Tell us about your project, goals, and timeline..."
-                    required
-                    rows={5}
-                    style={{ ...inputStyle, resize: 'none' }}
-                  />
-                </FormField>
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full mt-6 py-4 rounded-2xl font-bold text-base text-[#0A0F1E] transition-all duration-300 hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3"
-                  style={{ background: 'linear-gradient(135deg, #F5A623, #F7B94A)', boxShadow: '0 10px 30px rgba(245,166,35,0.3)' }}
-                >
-                  {loading ? (
+                <Field label="Tell us about your project" required>
+                  <textarea rows={5} placeholder="Describe your project, goals, timeline..." required
+                    value={form.message} onChange={e => setForm(p => ({ ...p, message: e.target.value }))}
+                    style={{ resize: 'none' }} />
+                </Field>
+                <button type="submit" disabled={state === 'loading'}
+                  className="btn-primary w-full py-4 text-[15px] justify-center disabled:opacity-60 disabled:cursor-not-allowed">
+                  {state === 'loading' ? (
                     <>
-                      <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                       </svg>
@@ -227,7 +124,7 @@ export default function ContactForm() {
                   ) : (
                     <>
                       Send Message
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                       </svg>
                     </>
@@ -243,51 +140,37 @@ export default function ContactForm() {
 }
 
 const inputStyle: React.CSSProperties = {
-  width: '100%',
-  padding: '12px 16px',
-  borderRadius: '12px',
-  background: 'rgba(255,255,255,0.05)',
-  border: '1px solid rgba(255,255,255,0.1)',
-  color: '#ffffff',
-  fontSize: '14px',
-  outline: 'none',
-  transition: 'all 0.2s ease',
+  width: '100%', padding: '11px 14px', borderRadius: '12px',
+  background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
+  color: '#F8FAFC', fontSize: '14px', transition: 'all 0.2s ease',
 }
 
-function FormField({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
+function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactElement }) {
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-300 mb-2">
-        {label}
-        {required && <span className="text-[#F5A623] ml-1">*</span>}
+      <label className="block text-[12px] font-semibold text-slate-400 mb-2 uppercase tracking-wider">
+        {label}{required && <span className="text-gold ml-1">*</span>}
       </label>
-      {children}
+      {React.cloneElement(children, { style: inputStyle })}
     </div>
   )
 }
 
-function ContactItem({
-  icon,
-  label,
-  value,
-  href,
-}: {
-  icon: React.ReactNode
-  label: string
-  value: string
-  href?: string
-}) {
-  const content = (
-    <div className="flex items-start gap-4 group/item">
-      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-[#F5A623]"
-        style={{ background: 'rgba(245,166,35,0.1)', border: '1px solid rgba(245,166,35,0.2)' }}>
+function InfoCard({ icon, label, value, href, color }: { icon: string; label: string; value: string; href?: string; color: string }) {
+  const inner = (
+    <div className="card rounded-2xl p-5 flex items-center gap-4 transition-all duration-300 hover:bg-white/[0.04] group">
+      <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-lg"
+        style={{ background: `${color}12`, border: `1px solid ${color}20` }}>
         {icon}
       </div>
       <div>
-        <div className="text-xs text-gray-500 uppercase tracking-wider mb-0.5">{label}</div>
-        <div className="text-white font-medium group-hover/item:text-[#F5A623] transition-colors duration-300">{value}</div>
+        <div className="text-[10px] font-semibold text-slate-600 uppercase tracking-wider mb-0.5">{label}</div>
+        <div className="text-sm font-medium text-white group-hover:text-gold transition-colors">{value}</div>
       </div>
     </div>
   )
-  return href ? <a href={href}>{content}</a> : <div>{content}</div>
+  return href ? <a href={href}>{inner}</a> : inner
 }
+
+// Need React for cloneElement
+import React from 'react'

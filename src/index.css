@@ -3,137 +3,202 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
+  html { scroll-behavior: smooth; }
   body {
-    background-color: #0A0F1E;
-    color: #ffffff;
+    background-color: #030712;
+    color: #F8FAFC;
     font-family: 'Inter', system-ui, sans-serif;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
-
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
 }
 
 @layer components {
-  .glass-card {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  /* ── Cards ── */
+  .card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+  }
+  .card-hover {
+    @apply card transition-all duration-500;
+  }
+  .card-hover:hover {
+    background: rgba(255,255,255,0.045);
+    border-color: rgba(255,255,255,0.12);
+    transform: translateY(-4px);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.4);
   }
 
-  .glass-card-hover {
-    @apply glass-card transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl;
-  }
-
-  .gold-gradient {
-    background: linear-gradient(135deg, #F5A623, #F7B94A);
-  }
-
-  .text-gradient-gold {
-    background: linear-gradient(135deg, #F5A623, #F7B94A, #F5A623);
+  /* ── Buttons ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #030712;
+    background: linear-gradient(135deg, #F59E0B, #FCD34D, #F59E0B);
     background-size: 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    box-shadow: 0 0 24px rgba(245,158,11,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    animation: shimmer 3s linear infinite;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 40px rgba(245,158,11,0.6), inset 0 1px 0 rgba(255,255,255,0.2);
+    transform: translateY(-2px) scale(1.02);
   }
 
-  .text-gradient-purple {
-    background: linear-gradient(135deg, #6C63FF, #8B85FF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 27px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #F8FAFC;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+    white-space: nowrap;
   }
-
-  .btn-gold {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-sm text-[#0A0F1E] transition-all duration-300;
-    background: linear-gradient(135deg, #F5A623, #F7B94A);
-    box-shadow: 0 0 20px rgba(245, 166, 35, 0.3);
-  }
-
-  .btn-gold:hover {
-    box-shadow: 0 0 35px rgba(245, 166, 35, 0.6);
+  .btn-ghost:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(245,158,11,0.4);
+    color: #F59E0B;
     transform: translateY(-2px);
   }
 
-  .btn-outline {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-sm text-white border border-white/30 transition-all duration-300;
+  /* ── Text Gradients ── */
+  .text-gold {
+    background: linear-gradient(135deg, #F59E0B, #FCD34D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-violet {
+    background: linear-gradient(135deg, #8B5CF6, #A78BFA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-aurora {
+    background: linear-gradient(135deg, #fff 0%, #F59E0B 40%, #8B5CF6 80%, #fff 100%);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 6s ease infinite;
   }
 
-  .btn-outline:hover {
-    @apply border-[#F5A623] text-[#F5A623];
-    box-shadow: 0 0 20px rgba(245, 166, 35, 0.2);
+  /* ── Section Labels ── */
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(245,158,11,0.08);
+    border: 1px solid rgba(245,158,11,0.2);
+    color: #F59E0B;
+  }
+  .section-tag-violet {
+    background: rgba(139,92,246,0.08);
+    border-color: rgba(139,92,246,0.2);
+    color: #A78BFA;
   }
 
-  .section-title {
-    @apply font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white leading-tight;
+  /* ── Glow Orbs ── */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(80px);
   }
 
-  .section-subtitle {
-    @apply text-gray-400 text-lg mt-4 max-w-2xl;
+  /* ── Grid Pattern ── */
+  .grid-pattern {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .dot-pattern {
+    background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
   }
 
-  .glow-gold {
-    box-shadow: 0 0 40px rgba(245, 166, 35, 0.15), 0 0 80px rgba(245, 166, 35, 0.05);
+  /* ── Animated border card ── */
+  .border-glow-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
   }
-
-  .glow-purple {
-    box-shadow: 0 0 40px rgba(108, 99, 255, 0.15), 0 0 80px rgba(108, 99, 255, 0.05);
+  .border-glow-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(245,158,11,0.3), rgba(139,92,246,0.3), rgba(245,158,11,0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
   }
+  .border-glow-card:hover::before { opacity: 1; }
 }
 
 @layer utilities {
-  .animate-on-scroll {
+  /* Scroll animations */
+  .fade-up {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(32px);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
+  .fade-up.in-view { opacity: 1; transform: translateY(0); }
 
-  .animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .animate-on-scroll-right {
+  .fade-in {
     opacity: 0;
-    transform: translateX(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition: opacity 0.7s ease;
   }
+  .fade-in.in-view { opacity: 1; }
 
-  .animate-on-scroll-right.visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .delay-100 { transition-delay: 100ms; }
-  .delay-200 { transition-delay: 200ms; }
-  .delay-300 { transition-delay: 300ms; }
-  .delay-400 { transition-delay: 400ms; }
-  .delay-500 { transition-delay: 500ms; }
+  .delay-1 { transition-delay: 0.1s; }
+  .delay-2 { transition-delay: 0.2s; }
+  .delay-3 { transition-delay: 0.3s; }
+  .delay-4 { transition-delay: 0.4s; }
+  .delay-5 { transition-delay: 0.5s; }
+  .delay-6 { transition-delay: 0.6s; }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0A0F1E;
-}
-
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #030712; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #F5A623, #6C63FF);
+  background: linear-gradient(180deg, #F59E0B, #8B5CF6);
   border-radius: 3px;
 }
 
-/* Noise texture overlay for premium feel */
-.noise-overlay::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  border-radius: inherit;
+/* Selection */
+::selection { background: rgba(245,158,11,0.25); color: #fff; }
+
+/* Input focus rings */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: rgba(245,158,11,0.5) !important;
+  box-shadow: 0 0 0 3px rgba(245,158,11,0.1) !important;
 }

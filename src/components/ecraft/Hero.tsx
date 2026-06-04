@@ -1,146 +1,140 @@
 import { useEffect, useRef } from 'react'
 
+const floatingCards = [
+  { label: 'Organic Traffic', value: '+320%', color: '#F59E0B', icon: '📈', delay: '0s' },
+  { label: 'Conversion Rate', value: '+185%', color: '#8B5CF6', icon: '🎯', delay: '1.5s' },
+  { label: 'Revenue Growth', value: '+240%', color: '#10B981', icon: '💰', delay: '3s' },
+]
+
 export default function Hero() {
-  const heroRef = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const el = heroRef.current
-    if (!el) return
-    setTimeout(() => el.classList.add('visible'), 100)
+    const t = setTimeout(() => ref.current?.classList.add('in-view'), 80)
+    return () => clearTimeout(t)
   }, [])
 
-  const handleScroll = (href: string) => {
-    const target = document.querySelector(href)
-    if (target) target.scrollIntoView({ behavior: 'smooth' })
-  }
+  const go = (href: string) => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #0A0F1E 0%, #0F1729 50%, #0A0F1E 100%)' }}
-    >
-      {/* Animated background blobs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-20 animate-float"
-          style={{ background: 'radial-gradient(circle, #6C63FF 0%, transparent 70%)', filter: 'blur(60px)' }}
-        />
-        <div
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-15 animate-float-delayed"
-          style={{ background: 'radial-gradient(circle, #F5A623 0%, transparent 70%)', filter: 'blur(60px)' }}
-        />
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, #6C63FF 0%, #F5A623 50%, transparent 70%)', filter: 'blur(80px)' }}
-        />
-      </div>
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden" style={{ background: '#030712' }}>
 
-      {/* Grid overlay */}
-      <div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
-        }}
-      />
+      {/* Grid bg */}
+      <div className="absolute inset-0 grid-pattern opacity-100" />
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full opacity-40"
-            style={{
-              width: `${Math.random() * 4 + 2}px`,
-              height: `${Math.random() * 4 + 2}px`,
-              background: i % 2 === 0 ? '#F5A623' : '#6C63FF',
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `float ${4 + Math.random() * 4}s ease-in-out ${Math.random() * 3}s infinite`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Glow orbs */}
+      <div className="orb w-[600px] h-[600px] -top-32 -left-48 opacity-[0.12]"
+        style={{ background: 'radial-gradient(circle, #8B5CF6, transparent)' }} />
+      <div className="orb w-[500px] h-[500px] top-1/2 -right-48 opacity-[0.10]"
+        style={{ background: 'radial-gradient(circle, #F59E0B, transparent)' }} />
+      <div className="orb w-[400px] h-[400px] bottom-0 left-1/3 opacity-[0.08]"
+        style={{ background: 'radial-gradient(circle, #10B981, transparent)' }} />
 
-      {/* Content */}
-      <div
-        ref={heroRef}
-        className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll"
-      >
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#F5A623]/30 bg-[#F5A623]/10 mb-8">
-          <span className="w-2 h-2 rounded-full bg-[#F5A623] animate-pulse" />
-          <span className="text-[#F5A623] text-sm font-medium">India's Premier Digital Marketing Agency</span>
-        </div>
+      <div className="relative z-10 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 w-full">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-        {/* Headline */}
-        <h1 className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6">
-          India's{' '}
-          <span
-            className="text-transparent bg-clip-text"
-            style={{ background: 'linear-gradient(135deg, #F5A623, #F7B94A, #F5A623)', backgroundSize: '200%', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
-          >
-            #1 Digital
-          </span>
-          <br />
-          Marketing &{' '}
-          <span
-            className="text-transparent bg-clip-text"
-            style={{ background: 'linear-gradient(135deg, #6C63FF, #8B85FF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
-          >
-            SEO Agency
-          </span>
-        </h1>
+          {/* Left — content */}
+          <div ref={ref} className="fade-up">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 section-tag mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+              India's Premier Digital Marketing Agency
+            </div>
 
-        {/* Subtitle */}
-        <p className="text-gray-400 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-10 leading-relaxed">
-          We help businesses grow online with <span className="text-white font-medium">SEO</span>,{' '}
-          <span className="text-white font-medium">Web Development</span>,{' '}
-          <span className="text-white font-medium">Digital Marketing</span> &{' '}
-          <span className="text-white font-medium">App Development</span>
-        </p>
+            {/* Headline */}
+            <h1 className="font-display font-black leading-[1.08] tracking-tight text-5xl sm:text-6xl xl:text-7xl text-white mb-6">
+              Transform Your<br />
+              Business With<br />
+              <span className="text-aurora">Digital Power</span>
+            </h1>
 
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <button
-            onClick={() => handleScroll('#contact')}
-            className="btn-gold text-base px-8 py-4 w-full sm:w-auto"
-          >
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-            Get Free Quote
-          </button>
-          <button
-            onClick={() => handleScroll('#services')}
-            className="btn-outline text-base px-8 py-4 w-full sm:w-auto"
-          >
-            Our Services
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-        </div>
+            {/* Subtext */}
+            <p className="text-slate-400 text-lg sm:text-xl leading-relaxed max-w-lg mb-10">
+              We build brands, rank websites, and drive measurable growth through
+              <span className="text-white font-medium"> SEO</span>,
+              <span className="text-white font-medium"> Web Development</span>,
+              <span className="text-white font-medium"> App Development</span> &
+              <span className="text-white font-medium"> Digital Marketing</span>.
+            </p>
 
-        {/* Floating service tags */}
-        <div className="flex flex-wrap justify-center gap-3">
-          {['SEO Optimization', 'Web Development', 'App Development', 'Social Media', 'PPC Advertising'].map((tag) => (
-            <span
-              key={tag}
-              className="px-4 py-2 rounded-full text-sm font-medium text-gray-300 border border-white/10 bg-white/5 backdrop-blur-sm hover:border-[#F5A623]/50 hover:text-[#F5A623] transition-all duration-300 cursor-default"
-            >
-              {tag}
-            </span>
-          ))}
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-3 mb-14">
+              <button onClick={() => go('#contact')} className="btn-primary text-[15px] px-7 py-3.5">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Start Your Project
+              </button>
+              <button onClick={() => go('#portfolio')} className="btn-ghost text-[15px] px-7 py-3.5">
+                View Our Work
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Stats row */}
+            <div className="flex flex-wrap gap-8">
+              {[
+                { v: '500+', l: 'Happy Clients' },
+                { v: '10+', l: 'Years in Business' },
+                { v: '98%', l: 'Client Retention' },
+                { v: '50+', l: 'Team Experts' },
+              ].map(s => (
+                <div key={s.l}>
+                  <div className="font-display font-black text-2xl text-gold">{s.v}</div>
+                  <div className="text-xs text-slate-500 font-medium mt-0.5">{s.l}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right — floating metric cards */}
+          <div className="hidden lg:flex items-center justify-center relative h-[520px]">
+            {/* Central card */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative w-80 h-80 rounded-3xl flex items-center justify-center"
+                style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.08), rgba(139,92,246,0.08))', border: '1px solid rgba(255,255,255,0.08)' }}>
+                <div className="text-center">
+                  <div className="font-display font-black text-6xl text-white mb-2">₹50Cr+</div>
+                  <div className="text-slate-400 text-sm font-medium">Revenue Generated</div>
+                  <div className="text-slate-600 text-xs mt-1">for our clients in 2025</div>
+                </div>
+                {/* Ring */}
+                <div className="absolute inset-[-1px] rounded-3xl border border-gold/20" />
+              </div>
+            </div>
+
+            {/* Floating metric cards */}
+            {floatingCards.map((card, i) => (
+              <div key={card.label}
+                className="absolute card px-4 py-3 min-w-[160px]"
+                style={{
+                  top: i === 0 ? '6%' : i === 1 ? '78%' : '44%',
+                  left: i === 0 ? '5%' : i === 1 ? '15%' : i === 2 ? '68%' : '5%',
+                  animation: `float ${6 + i * 2}s ease-in-out ${card.delay} infinite`,
+                  boxShadow: `0 8px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.06)`,
+                }}>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-base">{card.icon}</span>
+                  <span className="text-[11px] text-slate-500 font-medium">{card.label}</span>
+                </div>
+                <div className="font-display font-black text-xl" style={{ color: card.color }}>{card.value}</div>
+              </div>
+            ))}
+
+            {/* Orbit decoration */}
+            <div className="absolute inset-0 rounded-full border border-white/[0.03] animate-spin-slow"
+              style={{ width: 440, height: 440, top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }} />
+          </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-        <span className="text-gray-500 text-xs font-medium tracking-widest uppercase">Scroll</span>
-        <div className="w-6 h-10 border-2 border-white/20 rounded-full flex items-start justify-center pt-2">
-          <div className="w-1 h-2 bg-[#F5A623] rounded-full animate-bounce" />
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+        <span className="text-[10px] tracking-[0.2em] uppercase text-slate-500">Scroll</span>
+        <div className="w-5 h-8 rounded-full border border-white/20 flex justify-center pt-1.5">
+          <div className="w-0.5 h-1.5 bg-gold rounded-full animate-bounce" />
         </div>
       </div>
     </section>

@@ -1,39 +1,38 @@
-import { useScrollAnimation } from '../../hooks/useScrollAnimation'
+import { useCounter } from '../../hooks/useCounter'
 
 const stats = [
-  { value: '500+', label: 'Happy Clients', icon: '👥' },
-  { value: '10+', label: 'Years Experience', icon: '🏆' },
-  { value: '98%', label: 'Success Rate', icon: '📈' },
-  { value: '50+', label: 'Team Members', icon: '🚀' },
+  { target: 500, suffix: '+', label: 'Happy Clients', icon: '🤝', color: '#F59E0B' },
+  { target: 10, suffix: '+', label: 'Years Experience', icon: '🏆', color: '#8B5CF6' },
+  { target: 98, suffix: '%', label: 'Client Retention', icon: '❤️', color: '#10B981' },
+  { target: 50, suffix: '+', label: 'Team Experts', icon: '🚀', color: '#F59E0B' },
 ]
 
-export default function StatsBar() {
-  const ref = useScrollAnimation()
-
+function StatItem({ stat }: { stat: typeof stats[0] }) {
+  const { count, ref } = useCounter(stat.target, 1800)
   return (
-    <section className="relative py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div
-          ref={ref}
-          className="animate-on-scroll glass-card p-2 rounded-3xl"
-          style={{ background: 'linear-gradient(135deg, rgba(108,99,255,0.1), rgba(245,166,35,0.1))', border: '1px solid rgba(255,255,255,0.1)' }}
-        >
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-y-2 lg:divide-y-0 lg:divide-x-2 divide-white/10">
-            {stats.map((stat, i) => (
-              <div
-                key={stat.label}
-                className={`flex flex-col items-center justify-center py-8 px-6 text-center group hover:bg-white/5 transition-all duration-300 rounded-2xl animate-on-scroll delay-${(i + 1) * 100}`}
-              >
-                <span className="text-3xl mb-3">{stat.icon}</span>
-                <div
-                  className="font-display font-black text-4xl lg:text-5xl text-transparent bg-clip-text mb-2"
-                  style={{ background: i % 2 === 0 ? 'linear-gradient(135deg, #F5A623, #F7B94A)' : 'linear-gradient(135deg, #6C63FF, #8B85FF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
-                >
-                  {stat.value}
+    <div ref={ref} className="flex flex-col items-center text-center group">
+      <div className="text-2xl mb-3">{stat.icon}</div>
+      <div className="font-display font-black text-4xl xl:text-5xl mb-1.5" style={{ color: stat.color }}>
+        {count}{stat.suffix}
+      </div>
+      <div className="text-[12px] font-medium text-slate-500 uppercase tracking-widest">{stat.label}</div>
+    </div>
+  )
+}
+
+export default function StatsBar() {
+  return (
+    <section className="py-20 px-4 relative">
+      <div className="max-w-5xl mx-auto">
+        <div className="card border-glow-card">
+          <div className="p-8 lg:p-12">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 divide-y-2 lg:divide-y-0 lg:divide-x divide-white/[0.05]">
+              {stats.map((s, i) => (
+                <div key={s.label} className={i > 0 ? 'pt-8 lg:pt-0 lg:pl-8' : ''}>
+                  <StatItem stat={s} />
                 </div>
-                <div className="text-gray-400 text-sm font-medium uppercase tracking-wider">{stat.label}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

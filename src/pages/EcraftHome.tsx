@@ -1,48 +1,40 @@
-import { useEffect } from 'react'
+import { useScrollAnimateChildren } from '../hooks/useScrollAnimation'
 import Navbar from '../components/ecraft/Navbar'
 import Hero from '../components/ecraft/Hero'
+import Marquee from '../components/ecraft/Marquee'
 import StatsBar from '../components/ecraft/StatsBar'
 import Services from '../components/ecraft/Services'
+import Portfolio from '../components/ecraft/Portfolio'
 import SeoPackages from '../components/ecraft/SeoPackages'
 import WebDevPackage from '../components/ecraft/WebDevPackage'
+import Testimonials from '../components/ecraft/Testimonials'
 import WhyChooseUs from '../components/ecraft/WhyChooseUs'
 import WorkProcess from '../components/ecraft/WorkProcess'
 import ContactForm from '../components/ecraft/ContactForm'
 import Footer from '../components/ecraft/Footer'
+import WhatsAppButton from '../components/ecraft/WhatsAppButton'
 
 export default function EcraftHome() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-          }
-        })
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    )
-
-    const elements = document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-right')
-    elements.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
+  useScrollAnimateChildren('.fade-up, .fade-in')
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#0A0F1E' }}>
+    <div style={{ backgroundColor: '#030712', minHeight: '100vh' }}>
       <Navbar />
       <main>
         <Hero />
+        <Marquee />
         <StatsBar />
         <Services />
+        <Portfolio />
         <SeoPackages />
         <WebDevPackage />
+        <Testimonials />
         <WhyChooseUs />
         <WorkProcess />
         <ContactForm />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   )
 }
