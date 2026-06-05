@@ -51,6 +51,16 @@ const testimonials = [
   },
 ]
 
+const Stars = ({ n }: { n: number }) => (
+  <div className="flex gap-0.5">
+    {Array(n).fill(0).map((_, i) => (
+      <svg key={i} className="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    ))}
+  </div>
+)
+
 function Card({ t, delay }: { t: typeof testimonials[0]; delay: number }) {
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
@@ -65,29 +75,44 @@ function Card({ t, delay }: { t: typeof testimonials[0]; delay: number }) {
   }, [delay])
 
   return (
-    <div ref={ref} className="fade-up card border-glow-card p-6 rounded-[20px] flex flex-col gap-4 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.04]">
-      {/* Stars */}
-      <div className="flex gap-1">
-        {Array(t.stars).fill(0).map((_, i) => (
-          <svg key={i} className="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
-        ))}
-      </div>
+    <div
+      ref={ref}
+      className="fade-up flex flex-col gap-5 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1"
+      style={{
+        background: 'rgba(255,255,255,0.02)',
+        border: '1px solid rgba(255,255,255,0.07)',
+      }}
+    >
+      {/* Quote mark */}
+      <svg
+        className="w-7 h-7 flex-shrink-0 opacity-25"
+        fill="currentColor"
+        viewBox="0 0 32 32"
+        style={{ color: t.color }}
+      >
+        <path d="M10 8C5.6 8 2 11.6 2 16v8h8v-8H6c0-2.2 1.8-4 4-4V8zm16 0c-4.4 0-8 3.6-8 8v8h8v-8h-4c0-2.2 1.8-4 4-4V8z" />
+      </svg>
 
-      {/* Quote */}
-      <p className="text-slate-300 text-sm leading-relaxed flex-1">"{t.text}"</p>
+      <p className="text-slate-300 text-[13.5px] leading-relaxed flex-1">
+        {t.text}
+      </p>
 
       {/* Person */}
-      <div className="flex items-center gap-3 pt-2 border-t border-white/[0.06]">
-        <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs text-white flex-shrink-0"
-          style={{ background: `linear-gradient(135deg, ${t.color}, ${t.color}80)` }}>
+      <div
+        className="flex items-center gap-3 pt-4"
+        style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
+      >
+        <div
+          className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-[11px] text-white flex-shrink-0"
+          style={{ background: `${t.color}25`, border: `1px solid ${t.color}30`, color: t.color }}
+        >
           {t.avatar}
         </div>
-        <div>
-          <div className="font-semibold text-sm text-white">{t.name}</div>
-          <div className="text-[11px] text-slate-500">{t.role}</div>
+        <div className="flex-1 min-w-0">
+          <div className="font-semibold text-[13px] text-white truncate">{t.name}</div>
+          <div className="text-[11px] text-slate-500 truncate">{t.role}</div>
         </div>
+        <Stars n={t.stars} />
       </div>
     </div>
   )
@@ -98,43 +123,46 @@ export default function Testimonials() {
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) el.classList.add('in-view') }, { threshold: 0.1 })
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) el.classList.add('in-view') },
+      { threshold: 0.1 }
+    )
     obs.observe(el)
     return () => obs.disconnect()
   }, [])
 
   return (
     <section id="testimonials" className="py-28 px-4 relative overflow-hidden">
-      <div className="orb w-96 h-96 bottom-0 left-0 opacity-[0.07]"
-        style={{ background: 'radial-gradient(circle, #F59E0B, transparent)' }} />
+      <div
+        className="orb w-96 h-96 bottom-0 left-0 opacity-[0.06]"
+        style={{ background: 'radial-gradient(circle, #F59E0B, transparent)' }}
+      />
 
       <div className="max-w-[1320px] mx-auto relative z-10">
-        <div ref={ref} className="fade-up text-center mb-16">
-          <div className="section-tag mx-auto mb-5">Client Love</div>
-          <h2 className="font-display font-black text-4xl sm:text-5xl xl:text-6xl text-white leading-tight mb-5">
-            Trusted by 500+<br />
-            <span className="text-gold">Growing Businesses</span>
-          </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            Don't take our word for it — hear what our clients say about working with Ecraft Media.
-          </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {testimonials.map((t, i) => <Card key={t.name} t={t} delay={i * 80} />)}
-        </div>
-
-        {/* Summary bar */}
-        <div className="mt-14 card rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
-          {[
-            { v: '4.9/5', l: 'Average Rating' },
-            { v: '500+', l: 'Happy Clients' },
-            { v: '98%', l: 'Would Recommend' },
-          ].map(s => (
-            <div key={s.l} className="text-center">
-              <div className="font-display font-black text-3xl text-gold">{s.v}</div>
-              <div className="text-xs text-slate-500 font-medium mt-1 uppercase tracking-wider">{s.l}</div>
+        <div ref={ref} className="fade-up mb-16">
+          <div className="section-tag mb-5">Client Love</div>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <h2 className="font-display font-black text-4xl sm:text-5xl text-white leading-tight">
+              Trusted by 500+<br />
+              <span className="text-gold">Growing Businesses</span>
+            </h2>
+            <div className="flex items-center gap-6 flex-shrink-0">
+              {[
+                { v: '4.9/5', l: 'Rating' },
+                { v: '98%', l: 'Recommend' },
+              ].map(s => (
+                <div key={s.l} className="text-center">
+                  <div className="font-display font-black text-2xl text-white">{s.v}</div>
+                  <div className="text-[11px] text-slate-500 font-medium mt-0.5 uppercase tracking-wider">{s.l}</div>
+                </div>
+              ))}
             </div>
+          </div>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {testimonials.map((t, i) => (
+            <Card key={t.name} t={t} delay={i * 70} />
           ))}
         </div>
       </div>

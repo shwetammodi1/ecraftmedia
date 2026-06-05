@@ -75,31 +75,59 @@ const socials = [
 export default function Footer() {
   return (
     <footer
-      className="relative pt-20 pb-8 px-4 border-t border-white/[0.05]"
-      style={{ background: 'linear-gradient(180deg, #030712 0%, #020509 100%)' }}
+      className="relative pt-0 pb-8 px-4"
+      style={{ background: '#020509', borderTop: '1px solid rgba(255,255,255,0.05)' }}
     >
-      <div className="max-w-[1320px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-          {/* Brand */}
+      {/* ── CTA strip ── */}
+      <div
+        className="max-w-[1320px] mx-auto py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+        style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}
+      >
+        <div>
+          <h2 className="font-display font-black text-3xl sm:text-4xl text-white leading-tight mb-2">
+            Ready to grow your business?
+          </h2>
+          <p className="text-slate-500 text-base max-w-md">
+            Book a free strategy call. No obligations, just real insights for your brand.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-3 flex-shrink-0">
+          <Link to="/contacts" className="btn-primary">
+            Get Free Consultation
+          </Link>
+          <a
+            href="tel:+918850183944"
+            className="btn-ghost"
+          >
+            <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            +91 88501 83944
+          </a>
+        </div>
+      </div>
+
+      {/* ── Main footer body ── */}
+      <div className="max-w-[1320px] mx-auto pt-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-14">
+
+          {/* Brand column */}
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-flex items-center gap-2.5 mb-5">
-              <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: 'linear-gradient(135deg, #F59E0B, #8B5CF6)' }}
-              >
-                <span className="text-white font-display font-black text-sm">E</span>
-              </div>
-              <span className="font-display font-bold text-xl text-white">
-                Ecraft <span className="text-gold">Media</span>
-              </span>
+            <Link to="/" className="inline-flex mb-6 block">
+              <img
+                src="https://ecraftmedia.com/wp-content/uploads/2018/05/ecraft_logo1.png"
+                alt="Ecraft Media"
+                className="h-9 w-auto object-contain"
+                style={{ filter: 'brightness(0) invert(1)' }}
+              />
             </Link>
-            <p className="text-slate-500 text-sm leading-relaxed mb-3 max-w-xs">
-              India's premier digital marketing agency. Founded in 2014 by Khalid Shaikh, Mumbai.
+            <p className="text-slate-500 text-sm leading-relaxed mb-1 max-w-xs">
+              India's premier digital marketing agency.
             </p>
             <p className="text-slate-500 text-sm leading-relaxed mb-6 max-w-xs">
-              We help businesses grow online through SEO, web development, app development, and result-driven digital marketing.
+              Founded in 2014 by Khalid Shaikh, Mumbai. We help businesses grow online through SEO, web development, app development, and result-driven digital marketing.
             </p>
-            <div className="flex gap-2.5">
+            <div className="flex gap-2">
               {socials.map(s => (
                 <a
                   key={s.name}
@@ -107,22 +135,17 @@ export default function Footer() {
                   aria-label={s.name}
                   target={s.href.startsWith('http') ? '_blank' : undefined}
                   rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="w-9 h-9 rounded-xl flex items-center justify-center text-slate-500 transition-all duration-300"
-                  style={{
-                    background: 'rgba(255,255,255,0.04)',
-                    border: '1px solid rgba(255,255,255,0.07)',
-                  }}
+                  className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-500 transition-all duration-200 hover:text-white"
+                  style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
                   onMouseEnter={e => {
                     const el = e.currentTarget as HTMLAnchorElement
-                    el.style.background = 'rgba(245,158,11,0.12)'
-                    el.style.borderColor = 'rgba(245,158,11,0.3)'
-                    el.style.color = '#F59E0B'
+                    el.style.borderColor = 'rgba(245,158,11,0.35)'
+                    el.style.background = 'rgba(245,158,11,0.08)'
                   }}
                   onMouseLeave={e => {
                     const el = e.currentTarget as HTMLAnchorElement
-                    el.style.background = 'rgba(255,255,255,0.04)'
                     el.style.borderColor = 'rgba(255,255,255,0.07)'
-                    el.style.color = ''
+                    el.style.background = 'rgba(255,255,255,0.04)'
                   }}
                 >
                   {s.icon}
@@ -142,9 +165,8 @@ export default function Footer() {
                   <li key={link.l}>
                     <Link
                       to={link.h}
-                      className="text-[13px] text-slate-500 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                      className="text-[13px] text-slate-500 hover:text-white transition-colors duration-200"
                     >
-                      <span className="w-1 h-1 rounded-full bg-slate-700 group-hover:bg-gold transition-colors duration-200" />
                       {link.l}
                     </Link>
                   </li>
@@ -155,31 +177,55 @@ export default function Footer() {
         </div>
 
         {/* Contact bar */}
-        <div className="mb-8 p-6 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8"
-          style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
+        <div
+          className="mb-10 p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-10"
+          style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}
+        >
           <a href="tel:+918850183944"
-            className="flex items-center gap-3 text-sm text-slate-400 hover:text-gold transition-colors">
-            <span className="w-8 h-8 rounded-xl flex items-center justify-center text-base flex-shrink-0"
-              style={{ background: 'rgba(245,158,11,0.1)' }}>📞</span>
+            className="flex items-center gap-3 text-sm text-slate-400 hover:text-white transition-colors group">
+            <span
+              className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-amber-400"
+              style={{ background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.15)' }}
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </span>
             +91 8850183944
           </a>
           <a href="mailto:info@ecraftmedia.com"
-            className="flex items-center gap-3 text-sm text-slate-400 hover:text-gold transition-colors">
-            <span className="w-8 h-8 rounded-xl flex items-center justify-center text-base flex-shrink-0"
-              style={{ background: 'rgba(139,92,246,0.1)' }}>✉️</span>
+            className="flex items-center gap-3 text-sm text-slate-400 hover:text-white transition-colors">
+            <span
+              className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-violet-400"
+              style={{ background: 'rgba(139,92,246,0.08)', border: '1px solid rgba(139,92,246,0.15)' }}
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </span>
             info@ecraftmedia.com
           </a>
-          <span className="flex items-center gap-3 text-sm text-slate-500">
-            <span className="w-8 h-8 rounded-xl flex items-center justify-center text-base flex-shrink-0"
-              style={{ background: 'rgba(16,185,129,0.1)' }}>📍</span>
+          <div className="flex items-center gap-3 text-sm text-slate-500">
+            <span
+              className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-emerald-400"
+              style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.15)' }}
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </span>
             Mumbai, Maharashtra, India
-          </span>
+          </div>
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-white/[0.05] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div
+          className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4"
+          style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
+        >
           <p className="text-[12px] text-slate-600">
-            © 2026 <span className="text-gold">Ecraft Media</span>. All rights reserved. Mumbai, India.
+            © 2026 Ecraft Media. All rights reserved. Mumbai, India.
           </p>
           <div className="flex gap-6">
             {['Privacy Policy', 'Terms of Service', 'Sitemap'].map(t => (
