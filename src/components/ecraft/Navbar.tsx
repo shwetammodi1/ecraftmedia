@@ -44,17 +44,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0">
-            <div
-              className="relative w-8 h-8 rounded-xl overflow-hidden flex-shrink-0"
-              style={{ background: 'linear-gradient(135deg, #F59E0B 0%, #8B5CF6 100%)' }}
-            >
-              <span className="absolute inset-0 flex items-center justify-center text-white font-display font-black text-sm">
-                E
-              </span>
-            </div>
-            <span className="font-display font-bold text-[17px] text-white whitespace-nowrap">
-              Ecraft<span className="text-gold"> Media</span>
-            </span>
+            <img
+              src="https://ecraftmedia.com/wp-content/uploads/2018/05/ecraft_logo1.png"
+              alt="Ecraft Media"
+              className="h-8 w-auto object-contain flex-shrink-0"
+            />
           </Link>
 
           {/* Desktop links */}

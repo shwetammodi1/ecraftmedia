@@ -13,6 +13,7 @@ import WorkProcess from '../components/ecraft/WorkProcess'
 import ContactForm from '../components/ecraft/ContactForm'
 import Footer from '../components/ecraft/Footer'
 import WhatsAppButton from '../components/ecraft/WhatsAppButton'
+import ClientLogos from '../components/ecraft/ClientLogos'
 
 export default function EcraftHome() {
   useScrollAnimateChildren('.fade-up, .fade-in')
@@ -24,6 +25,7 @@ export default function EcraftHome() {
         <Hero />
         <Marquee />
         <StatsBar />
+        <ClientLogos />
         <Services />
         <Portfolio />
         <SeoPackages />
