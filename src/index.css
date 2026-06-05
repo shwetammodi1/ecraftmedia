@@ -2,14 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Theme CSS variables ── */
+:root {
+  --page-bg:     #030712;
+  --page-bg-alt: #020509;
+  --card-bg:     rgba(255,255,255,0.02);
+  --card-bg-h:   rgba(255,255,255,0.04);
+  --border:      rgba(255,255,255,0.07);
+  --border-h:    rgba(255,255,255,0.14);
+  --text-1:      #F8FAFC;
+  --text-2:      #94A3B8;
+  --text-3:      #475569;
+  --text-4:      #1E293B;
+  --grid-line:   rgba(255,255,255,0.012);
+  --nav-bg:      rgba(3,7,18,0.92);
+  --nav-border:  rgba(255,255,255,0.06);
+  --scrollbar:   rgba(245,158,11,0.35);
+  --input-bg:    rgba(255,255,255,0.03);
+  --input-border:rgba(255,255,255,0.08);
+  --select-color:#F8FAFC;
+}
+
+html[data-theme="light"] {
+  --page-bg:     #FAFAFA;
+  --page-bg-alt: #F1F5F9;
+  --card-bg:     #FFFFFF;
+  --card-bg-h:   #F8FAFC;
+  --border:      rgba(0,0,0,0.07);
+  --border-h:    rgba(0,0,0,0.14);
+  --text-1:      #0F172A;
+  --text-2:      #4B5563;
+  --text-3:      #9CA3AF;
+  --text-4:      #D1D5DB;
+  --grid-line:   rgba(0,0,0,0.04);
+  --nav-bg:      rgba(250,250,250,0.96);
+  --nav-border:  rgba(0,0,0,0.07);
+  --scrollbar:   rgba(245,158,11,0.5);
+  --input-bg:    rgba(0,0,0,0.03);
+  --input-border:rgba(0,0,0,0.09);
+  --select-color:#0F172A;
+}
+
 @layer base {
   html { scroll-behavior: smooth; }
   body {
-    background-color: #030712;
-    color: #F8FAFC;
+    background-color: var(--page-bg);
+    color: var(--text-1);
     font-family: 'Inter', system-ui, sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   * { box-sizing: border-box; }
 }
@@ -17,14 +59,16 @@
 @layer components {
   /* ── Cards ── */
   .card {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.07);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
     border-radius: 16px;
+    transition: background 0.3s ease, border-color 0.3s ease;
   }
   .card-elevated {
-    background: rgba(255,255,255,0.035);
-    border: 1px solid rgba(255,255,255,0.09);
+    background: var(--card-bg-h);
+    border: 1px solid var(--border-h);
     border-radius: 16px;
+    transition: background 0.3s ease, border-color 0.3s ease;
   }
 
   /* ── Buttons ── */
@@ -118,8 +162,8 @@
   /* ── Subtle grid bg ── */
   .grid-pattern {
     background-image:
-      linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
     background-size: 80px 80px;
   }
 
@@ -188,9 +232,9 @@
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #030712; }
+::-webkit-scrollbar-track { background: var(--page-bg); }
 ::-webkit-scrollbar-thumb {
-  background: rgba(245,158,11,0.35);
+  background: var(--scrollbar);
   border-radius: 2px;
 }
 
@@ -202,4 +246,44 @@ input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: rgba(245,158,11,0.4) !important;
   box-shadow: 0 0 0 3px rgba(245,158,11,0.07) !important;
+}
+
+/* ── Light mode global text overrides ── */
+html[data-theme="light"] .text-white       { color: var(--text-1) !important; }
+html[data-theme="light"] .text-slate-300   { color: #374151 !important; }
+html[data-theme="light"] .text-slate-400   { color: #4B5563 !important; }
+html[data-theme="light"] .text-slate-500   { color: #6B7280 !important; }
+html[data-theme="light"] .text-slate-600   { color: #9CA3AF !important; }
+html[data-theme="light"] .orb              { opacity: 0.04 !important; }
+html[data-theme="light"] .border-glow-card { border-color: var(--border) !important; }
+
+/* Light mode input fields */
+html[data-theme="light"] input,
+html[data-theme="light"] textarea,
+html[data-theme="light"] select {
+  background: var(--input-bg) !important;
+  border-color: var(--input-border) !important;
+  color: var(--text-1) !important;
+}
+
+html[data-theme="light"] select option {
+  background: #FFFFFF;
+  color: #0F172A;
+}
+
+/* Light mode: card boxes */
+html[data-theme="light"] .card {
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+/* Light mode: section-tag line keeps gold colour */
+html[data-theme="light"] .section-tag { color: #D97706; }
+html[data-theme="light"] .section-tag::before { background: #D97706; }
+
+/* Light mode: .text-gold gradient stays readable */
+html[data-theme="light"] .text-gold {
+  background: linear-gradient(135deg, #D97706, #F59E0B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

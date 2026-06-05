@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTheme } from '../../contexts/ThemeContext'
 
 const cols = [
   {
@@ -73,15 +74,17 @@ const socials = [
 ]
 
 export default function Footer() {
+  const { theme } = useTheme()
+  const isLight = theme === 'light'
   return (
     <footer
       className="relative pt-0 pb-8 px-4"
-      style={{ background: '#020509', borderTop: '1px solid rgba(255,255,255,0.05)' }}
+      style={{ background: 'var(--page-bg-alt, var(--page-bg))', borderTop: '1px solid var(--border)' }}
     >
       {/* ── CTA strip ── */}
       <div
         className="max-w-[1320px] mx-auto py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
-        style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}
+        style={{ borderBottom: '1px solid var(--border)' }}
       >
         <div>
           <h2 className="font-display font-black text-3xl sm:text-4xl text-white leading-tight mb-2">
@@ -117,8 +120,8 @@ export default function Footer() {
               <img
                 src="https://ecraftmedia.com/wp-content/uploads/2018/05/ecraft_logo1.png"
                 alt="Ecraft Media"
-                className="h-9 w-auto object-contain"
-                style={{ filter: 'brightness(0) invert(1)' }}
+                className="h-9 w-auto object-contain transition-all duration-300"
+                style={{ filter: isLight ? 'none' : 'brightness(0) invert(1)' }}
               />
             </Link>
             <p className="text-slate-500 text-sm leading-relaxed mb-1 max-w-xs">

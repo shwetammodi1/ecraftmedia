@@ -29,7 +29,7 @@ export default function Hero() {
     <section
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ background: '#030712' }}
+      style={{ background: 'var(--page-bg)' }}
     >
       {/* Subtle grid */}
       <div className="absolute inset-0 grid-pattern opacity-100 pointer-events-none" />
