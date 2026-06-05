@@ -205,7 +205,8 @@ export default function Blogs() {
             {/* Post header */}
             <div className="card border-glow-card rounded-[28px] overflow-hidden mb-8">
               <div
-                className="px-8 py-8 border-b border-white/[0.06]"
+                className="px-8 py-8"
+              style={{ borderBottom: '1px solid var(--border)' }}
                 style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.08), rgba(139,92,246,0.06))' }}
               >
                 <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -363,8 +364,8 @@ export default function Blogs() {
       <section className="px-4 pb-20">
         <div className="max-w-[1320px] mx-auto">
           <div
-            className="rounded-[28px] border border-white/[0.06] p-10 text-center"
-            style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.07), rgba(139,92,246,0.05))' }}
+            className="rounded-[28px] p-10 text-center"
+            style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.07), rgba(139,92,246,0.05))', border: '1px solid var(--border)' }}
           >
             <h2 className="font-display font-bold text-3xl text-white mb-3">
               Not enough for your seo needs?

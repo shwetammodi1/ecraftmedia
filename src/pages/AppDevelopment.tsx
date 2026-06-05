@@ -83,7 +83,7 @@ export default function AppDevelopment() {
                     <span
                       key={v}
                       className="px-3 py-1.5 rounded-full text-[12px] font-medium text-slate-300"
-                      style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+                      style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
                     >
                       {v}
                     </span>
@@ -177,7 +177,8 @@ export default function AppDevelopment() {
               >
                 <p className="text-slate-400 text-sm mb-4">Have an app idea? Let's build it together.</p>
                 <a href="tel:+918850183944" className="btn-primary w-full justify-center text-sm">
-                  📞 Call Us Now
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                  Call Us Now
                 </a>
               </div>
             </aside>

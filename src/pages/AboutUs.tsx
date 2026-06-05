@@ -141,7 +141,7 @@ export default function AboutUs() {
           {/* Stats row */}
           <div
             className="rounded-[28px] p-8 grid grid-cols-2 sm:grid-cols-4 gap-8 text-center mb-8"
-            style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}
+            style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
           >
             {[
               { v: '2014', l: 'Founded', c: '#F59E0B' },

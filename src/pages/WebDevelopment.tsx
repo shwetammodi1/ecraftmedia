@@ -124,7 +124,7 @@ export default function WebDevelopment() {
                   <span
                     key={tag}
                     className="flex items-center gap-2 text-[12px] text-slate-400 px-3 py-1.5 rounded-full"
-                    style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+                    style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
                   >
                     <svg className="w-3 h-3 text-violet" fill="none" stroke="#A78BFA" viewBox="0 0 24 24" strokeWidth={3}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />

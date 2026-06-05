@@ -248,14 +248,23 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 0 0 3px rgba(245,158,11,0.07) !important;
 }
 
-/* ── Light mode global text overrides ── */
-html[data-theme="light"] .text-white       { color: var(--text-1) !important; }
-html[data-theme="light"] .text-slate-300   { color: #374151 !important; }
-html[data-theme="light"] .text-slate-400   { color: #4B5563 !important; }
-html[data-theme="light"] .text-slate-500   { color: #6B7280 !important; }
-html[data-theme="light"] .text-slate-600   { color: #9CA3AF !important; }
-html[data-theme="light"] .orb              { opacity: 0.04 !important; }
-html[data-theme="light"] .border-glow-card { border-color: var(--border) !important; }
+/* ── Light mode global text + bg overrides ── */
+html[data-theme="light"] .bg-base         { background-color: var(--page-bg) !important; }
+html[data-theme="light"] .text-white      { color: var(--text-1) !important; }
+html[data-theme="light"] .text-slate-200  { color: #1F2937 !important; }
+html[data-theme="light"] .text-slate-300  { color: #374151 !important; }
+html[data-theme="light"] .text-slate-400  { color: #4B5563 !important; }
+html[data-theme="light"] .text-slate-500  { color: #6B7280 !important; }
+html[data-theme="light"] .text-slate-600  { color: #9CA3AF !important; }
+html[data-theme="light"] .orb             { opacity: 0.035 !important; }
+html[data-theme="light"] .border-glow-card{ border-color: var(--border) !important; }
+/* Tailwind border-white opacity classes */
+html[data-theme="light"] .border-white\/\[0\.06\] { border-color: var(--border) !important; }
+html[data-theme="light"] .border-white\/\[0\.05\] { border-color: var(--border) !important; }
+html[data-theme="light"] .border-white\/\[0\.08\] { border-color: var(--border) !important; }
+html[data-theme="light"] .hover\:bg-white\/\[0\.04\]:hover { background: var(--card-bg-h) !important; }
+/* Blogs/Contacts hardcoded dark input bg */
+html[data-theme="light"] .bg-\[#02050B\]  { background: var(--input-bg) !important; }
 
 /* Light mode input fields */
 html[data-theme="light"] input,

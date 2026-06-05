@@ -196,7 +196,7 @@ export default function SeoServices() {
           {/* Comparison bar */}
           <div
             className="rounded-[28px] p-8 mb-12 grid sm:grid-cols-3 gap-8 text-center"
-            style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}
+            style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
           >
             {[
               { plan: 'Standard', pages: '10 Pages', kw: '10 Keywords', color: '#8B5CF6' },
