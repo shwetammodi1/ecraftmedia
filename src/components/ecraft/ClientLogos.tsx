@@ -13,7 +13,7 @@ const logos = [
   { src: 'https://ecraftmedia.com/wp-content/uploads/2022/08/A112.png', alt: 'Client' },
   { src: 'https://ecraftmedia.com/wp-content/uploads/2022/09/free-press-j.png', alt: 'Free Press' },
   { src: 'https://ecraftmedia.com/wp-content/uploads/2021/03/liberty.jpg', alt: 'Liberty' },
-  { src: 'https://ecraftmedia.com/wp-content/uploads/2024/08/Logo-Finance360-Purple-150x127.png', alt: 'Finance 360' },
+  { src: 'https://ecraftmedia.com/wp-content/uploads/2024/08/Logo-Finance360-Purple-150x127.png', alt: 'Finance360' },
   { src: 'https://ecraftmedia.com/wp-content/uploads/2024/08/Logo-Sandstone-150x74.png', alt: 'Sandstone' },
 ]
 
@@ -22,9 +22,18 @@ export default function ClientLogos() {
   const isLight = theme === 'light'
   const doubled = [...logos, ...logos]
 
+  /* Per logo: wrap in a subtle pill card so white-bg logos (JPEGs etc.)
+     also look clean instead of becoming a solid rectangle */
+  const cardBg = isLight ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.06)'
+  const cardBorder = isLight ? '1px solid rgba(0,0,0,0.07)' : '1px solid rgba(255,255,255,0.08)'
+  /* Grayscale + brightness keeps logos readable on any bg type */
+  const imgFilter = isLight
+    ? 'grayscale(1) brightness(0.35) contrast(1.2)'
+    : 'grayscale(1) brightness(2.5) contrast(0.9)'
+
   return (
     <div
-      className="relative py-12 overflow-hidden"
+      className="relative py-10 overflow-hidden"
       style={{
         background: 'var(--card-bg)',
         borderTop: '1px solid var(--border)',
@@ -33,19 +42,19 @@ export default function ClientLogos() {
     >
       {/* Label */}
       <p
-        className="text-center text-[10.5px] font-bold tracking-[0.22em] uppercase mb-8"
+        className="text-center text-[10px] font-bold tracking-[0.22em] uppercase mb-7"
         style={{ color: 'var(--text-3)' }}
       >
         Trusted by 500+ businesses across India
       </p>
 
-      {/* Fade edges — uses page bg */}
+      {/* Fade edges */}
       <div
-        className="absolute left-0 top-0 bottom-0 w-28 z-10 pointer-events-none"
+        className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
         style={{ background: 'linear-gradient(90deg, var(--page-bg), transparent)' }}
       />
       <div
-        className="absolute right-0 top-0 bottom-0 w-28 z-10 pointer-events-none"
+        className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
         style={{ background: 'linear-gradient(-90deg, var(--page-bg), transparent)' }}
       />
 
@@ -53,19 +62,27 @@ export default function ClientLogos() {
         {doubled.map((logo, i) => (
           <div
             key={i}
-            className="inline-flex items-center justify-center mx-10 h-10 w-28 flex-shrink-0 transition-opacity duration-300"
-            style={{ opacity: isLight ? 0.55 : 0.35 }}
-            onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.opacity = '0.85' }}
-            onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.opacity = isLight ? '0.55' : '0.35' }}
+            className="inline-flex items-center justify-center mx-4 flex-shrink-0 transition-all duration-300 hover:opacity-100"
+            style={{
+              background: cardBg,
+              border: cardBorder,
+              borderRadius: '10px',
+              padding: '8px 18px',
+              height: '54px',
+              width: '130px',
+              opacity: 0.65,
+            }}
+            onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.opacity = '1' }}
+            onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.opacity = '0.65' }}
           >
             <img
               src={logo.src}
               alt={logo.alt}
-              className="max-h-full max-w-full object-contain"
               style={{
-                filter: isLight
-                  ? 'grayscale(100%) brightness(0.3)'
-                  : 'brightness(0) invert(1)',
+                maxHeight: '32px',
+                maxWidth: '100px',
+                objectFit: 'contain',
+                filter: imgFilter,
               }}
             />
           </div>
