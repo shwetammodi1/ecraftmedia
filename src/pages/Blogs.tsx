@@ -206,8 +206,7 @@ export default function Blogs() {
             <div className="card border-glow-card rounded-[28px] overflow-hidden mb-8">
               <div
                 className="px-8 py-8"
-              style={{ borderBottom: '1px solid var(--border)' }}
-                style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.08), rgba(139,92,246,0.06))' }}
+                style={{ borderBottom: '1px solid var(--border)', background: 'linear-gradient(135deg, rgba(245,158,11,0.08), rgba(139,92,246,0.06))' }}
               >
                 <div className="flex flex-wrap items-center gap-3 mb-4">
                   <span className="section-tag">Posts</span>
