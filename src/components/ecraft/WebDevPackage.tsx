@@ -38,7 +38,7 @@ export default function WebDevPackage() {
   }, [])
 
   return (
-    <section id="web-dev" className="py-28 px-4">
+    <section id="web-dev" className="py-28 px-4" style={{ background: 'var(--page-bg-alt)' }}>
       <div className="max-w-[1320px] mx-auto">
         <div ref={ref} className="fade-up text-center mb-16">
           <div className="section-tag section-tag-violet mx-auto mb-5">Web Development</div>

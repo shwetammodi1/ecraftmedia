@@ -1,11 +1,12 @@
 import { useEffect, useRef } from 'react'
+import { useTheme } from '../../contexts/ThemeContext'
 
 const clientLogos = [
   'https://ecraftmedia.com/wp-content/uploads/2015/11/A1.png',
   'https://ecraftmedia.com/wp-content/uploads/2015/11/A3.png',
   'https://ecraftmedia.com/wp-content/uploads/2015/11/A4.png',
   'https://ecraftmedia.com/wp-content/uploads/2022/09/free-press-j.png',
-  'https://ecraftmedia.com/wp-content/uploads/2024/08/Logo-Finance360-Purple-150x127.png',
+  'https://ecraftmedia.com/wp-content/uploads/2024/08/Logo-Finance360-Purple.png',
 ]
 
 const metrics = [
@@ -16,6 +17,9 @@ const metrics = [
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null)
+  const { theme } = useTheme()
+  const isLight = theme === 'light'
+  const logoFilter = isLight ? 'grayscale(1) brightness(0.35) contrast(1.2)' : 'grayscale(1) brightness(2.5) contrast(0.9)'
 
   useEffect(() => {
     const t = setTimeout(() => ref.current?.classList.add('in-view'), 80)
@@ -119,8 +123,8 @@ export default function Hero() {
                     key={i}
                     src={src}
                     alt="client"
-                    className="h-7 w-auto object-contain opacity-30 hover:opacity-60 transition-opacity duration-300"
-                    style={{ filter: 'brightness(0) invert(1)' }}
+                    className="h-7 w-auto object-contain opacity-40 hover:opacity-80 transition-opacity duration-300"
+                    style={{ filter: logoFilter }}
                   />
                 ))}
               </div>
@@ -132,8 +136,8 @@ export default function Hero() {
             <div
               className="rounded-2xl p-6 relative overflow-hidden"
               style={{
-                background: 'rgba(255,255,255,0.025)',
-                border: '1px solid rgba(255,255,255,0.08)',
+                background: 'var(--card-bg)',
+                border: '1px solid var(--border)',
                 backdropFilter: 'blur(16px)',
               }}
             >
@@ -172,7 +176,7 @@ export default function Hero() {
                       <span className="text-[12px] text-slate-400 font-medium">{m.label}</span>
                       <span className="text-[13px] font-bold" style={{ color: m.color }}>{m.value}</span>
                     </div>
-                    <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.05)' }}>
+                    <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'var(--border)' }}>
                       <div
                         className="h-full rounded-full transition-all duration-700"
                         style={{ width: m.width, background: m.color, opacity: 0.8 }}
@@ -183,7 +187,7 @@ export default function Hero() {
               </div>
 
               {/* Divider */}
-              <div className="h-px mb-5" style={{ background: 'rgba(255,255,255,0.06)' }} />
+              <div className="h-px mb-5" style={{ background: 'var(--border)' }} />
 
               {/* Bottom metrics row */}
               <div className="grid grid-cols-2 gap-4 mb-5">
@@ -195,7 +199,7 @@ export default function Hero() {
                 ].map(m => (
                   <div key={m.label}
                     className="rounded-xl p-3"
-                    style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                    style={{ background: 'var(--card-bg-h)', border: '1px solid var(--border)' }}>
                     <p className="text-[10px] text-slate-500 font-medium mb-1">{m.label}</p>
                     <p className="font-display font-bold text-[15px]" style={{ color: m.color }}>{m.value}</p>
                   </div>
@@ -209,7 +213,7 @@ export default function Hero() {
                     src="https://ecraftmedia.com/wp-content/uploads/2018/05/ecraft_logo1.png"
                     alt="Ecraft"
                     className="h-5 w-auto object-contain opacity-60"
-                    style={{ filter: 'brightness(0) invert(1)' }}
+                    style={{ filter: isLight ? 'none' : 'brightness(0) invert(1)' }}
                   />
                   <span className="text-[11px] text-slate-600">Ecraft Media Report</span>
                 </div>
@@ -233,7 +237,7 @@ export default function Hero() {
                 <div
                   key={s.l}
                   className="rounded-xl p-3 text-center"
-                  style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}
+                  style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
                 >
                   <div className="font-display font-black text-lg text-white">{s.v}</div>
                   <div className="text-[10px] text-slate-500 mt-0.5">{s.l}</div>

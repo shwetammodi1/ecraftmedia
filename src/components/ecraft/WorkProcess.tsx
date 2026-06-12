@@ -52,7 +52,7 @@ function Step({ s, i }: { s: typeof steps[0]; i: number }) {
       {i < steps.length - 1 && (
         <div
           className="hidden xl:block absolute top-5 left-[calc(50%+20px)] right-[calc(-50%+20px)] h-px pointer-events-none"
-          style={{ background: 'rgba(255,255,255,0.06)' }}
+          style={{ background: 'var(--border)' }}
         />
       )}
 
@@ -116,7 +116,7 @@ export default function WorkProcess() {
         {/* Steps */}
         <div
           className="rounded-2xl p-8 lg:p-12"
-          style={{ background: 'rgba(255,255,255,0.015)', border: '1px solid rgba(255,255,255,0.06)' }}
+          style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
         >
           <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-10 xl:gap-4">
             {steps.map((s, i) => (

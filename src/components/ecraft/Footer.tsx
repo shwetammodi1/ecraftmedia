@@ -139,7 +139,7 @@ export default function Footer() {
                   target={s.href.startsWith('http') ? '_blank' : undefined}
                   rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-500 transition-all duration-200 hover:text-white"
-                  style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+                  style={{ background: 'var(--card-bg-h)', border: '1px solid var(--border)' }}
                   onMouseEnter={e => {
                     const el = e.currentTarget as HTMLAnchorElement
                     el.style.borderColor = 'rgba(245,158,11,0.35)'
@@ -147,8 +147,8 @@ export default function Footer() {
                   }}
                   onMouseLeave={e => {
                     const el = e.currentTarget as HTMLAnchorElement
-                    el.style.borderColor = 'rgba(255,255,255,0.07)'
-                    el.style.background = 'rgba(255,255,255,0.04)'
+                    el.style.borderColor = 'var(--border)'
+                    el.style.background = 'var(--card-bg-h)'
                   }}
                 >
                   {s.icon}
@@ -182,7 +182,7 @@ export default function Footer() {
         {/* Contact bar */}
         <div
           className="mb-10 p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-10"
-          style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}
+          style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
         >
           <a href="tel:+918850183944"
             className="flex items-center gap-3 text-sm text-slate-400 hover:text-white transition-colors group">
@@ -225,7 +225,7 @@ export default function Footer() {
         {/* Bottom */}
         <div
           className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
+          style={{ borderTop: '1px solid var(--border)' }}
         >
           <p className="text-[12px] text-slate-600">
             © 2026 Ecraft Media. All rights reserved. Mumbai, India.

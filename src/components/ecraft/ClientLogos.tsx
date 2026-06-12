@@ -13,8 +13,8 @@ const logos = [
   { src: 'https://ecraftmedia.com/wp-content/uploads/2022/08/A112.png', alt: 'Client' },
   { src: 'https://ecraftmedia.com/wp-content/uploads/2022/09/free-press-j.png', alt: 'Free Press' },
   { src: 'https://ecraftmedia.com/wp-content/uploads/2021/03/liberty.jpg', alt: 'Liberty' },
-  { src: 'https://ecraftmedia.com/wp-content/uploads/2024/08/Logo-Finance360-Purple-150x127.png', alt: 'Finance360' },
-  { src: 'https://ecraftmedia.com/wp-content/uploads/2024/08/Logo-Sandstone-150x74.png', alt: 'Sandstone' },
+  { src: 'https://ecraftmedia.com/wp-content/uploads/2024/08/Logo-Finance360-Purple.png', alt: 'Finance360' },
+  { src: 'https://ecraftmedia.com/wp-content/uploads/2024/08/Logo-Sandstone.png', alt: 'Sandstone' },
 ]
 
 export default function ClientLogos() {

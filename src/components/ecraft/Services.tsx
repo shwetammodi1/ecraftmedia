@@ -103,8 +103,8 @@ function ServiceCard({
       <div
         className="h-full flex flex-col p-7 rounded-2xl transition-all duration-300"
         style={{
-          background: 'rgba(255,255,255,0.02)',
-          border: '1px solid rgba(255,255,255,0.07)',
+          background: 'var(--card-bg)',
+          border: '1px solid var(--border)',
         }}
         onMouseEnter={e => {
           const el = e.currentTarget as HTMLDivElement
@@ -113,8 +113,8 @@ function ServiceCard({
         }}
         onMouseLeave={e => {
           const el = e.currentTarget as HTMLDivElement
-          el.style.borderColor = 'rgba(255,255,255,0.07)'
-          el.style.background = 'rgba(255,255,255,0.02)'
+          el.style.borderColor = 'var(--border)'
+          el.style.background = 'var(--card-bg)'
         }}
       >
         {/* Icon + stat row */}

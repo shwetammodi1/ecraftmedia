@@ -31,17 +31,17 @@ export default function StatsBar() {
         <div
           className="rounded-2xl py-10 px-6"
           style={{
-            background: 'rgba(255,255,255,0.02)',
-            border: '1px solid rgba(255,255,255,0.07)',
+            background: 'var(--card-bg)',
+            border: '1px solid var(--border)',
           }}
         >
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 divide-y-2 lg:divide-y-0 lg:divide-x"
-            style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
+            style={{ borderColor: 'var(--border)' }}>
             {stats.map((s, i) => (
               <div
                 key={s.label}
                 className={i > 0 ? 'pt-8 lg:pt-0 lg:pl-0' : ''}
-                style={i > 0 ? { borderColor: 'rgba(255,255,255,0.05)' } : {}}
+                style={i > 0 ? { borderColor: 'var(--border)' } : {}}
               >
                 <StatItem stat={s} />
               </div>

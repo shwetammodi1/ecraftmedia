@@ -79,8 +79,8 @@ function Card({ t, delay }: { t: typeof testimonials[0]; delay: number }) {
       ref={ref}
       className="fade-up flex flex-col gap-5 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1"
       style={{
-        background: 'rgba(255,255,255,0.02)',
-        border: '1px solid rgba(255,255,255,0.07)',
+        background: 'var(--card-bg)',
+        border: '1px solid var(--border)',
       }}
     >
       {/* Quote mark */}
@@ -100,7 +100,7 @@ function Card({ t, delay }: { t: typeof testimonials[0]; delay: number }) {
       {/* Person */}
       <div
         className="flex items-center gap-3 pt-4"
-        style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
+        style={{ borderTop: '1px solid var(--border)' }}
       >
         <div
           className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-[11px] text-white flex-shrink-0"

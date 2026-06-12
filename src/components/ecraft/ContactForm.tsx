@@ -59,7 +59,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-28 px-4 relative overflow-hidden">
+    <section id="contact" className="py-28 px-4 relative overflow-hidden" style={{ background: 'var(--page-bg-alt)' }}>
       <div
         className="orb w-[600px] h-[600px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.06]"
         style={{ background: 'radial-gradient(circle, #F59E0B, transparent)' }}
@@ -109,7 +109,7 @@ export default function ContactForm() {
             {/* Hours */}
             <div
               className="rounded-2xl p-6"
-              style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}
+              style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
             >
               <h4 className="font-semibold text-white text-[13px] mb-4">Working Hours</h4>
               <div className="space-y-3 text-[13px]">
@@ -175,7 +175,7 @@ export default function ContactForm() {
               <form
                 onSubmit={handleSubmit}
                 className="rounded-2xl p-8 space-y-5"
-                style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}
+                style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
               >
                 <div className="grid sm:grid-cols-2 gap-5">
                   <Field label="Your Name" required>
@@ -253,8 +253,8 @@ const inputBase: React.CSSProperties = {
   width: '100%',
   padding: '11px 14px',
   borderRadius: '10px',
-  background: 'rgba(255,255,255,0.03)',
-  border: '1px solid rgba(255,255,255,0.08)',
+  background: 'var(--input-bg)',
+  border: '1px solid var(--input-border)',
   color: 'var(--text-1, #F8FAFC)',
   fontSize: '14px',
   transition: 'border-color 0.2s, background 0.2s',
@@ -296,7 +296,7 @@ function InfoCard({
   const inner = (
     <div
       className="rounded-2xl p-5 flex items-center gap-4 transition-all duration-200 group"
-      style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}
+      style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
       onMouseEnter={e => {
         const el = e.currentTarget as HTMLDivElement
         el.style.borderColor = `${color}28`
@@ -304,8 +304,8 @@ function InfoCard({
       }}
       onMouseLeave={e => {
         const el = e.currentTarget as HTMLDivElement
-        el.style.borderColor = 'rgba(255,255,255,0.07)'
-        el.style.background = 'rgba(255,255,255,0.02)'
+        el.style.borderColor = 'var(--border)'
+        el.style.background = 'var(--card-bg)'
       }}
     >
       <div
