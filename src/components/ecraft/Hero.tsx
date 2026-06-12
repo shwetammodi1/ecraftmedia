@@ -73,7 +73,7 @@ export default function Hero() {
               <span className="text-white">Grow Your Business</span>
               <br />
               <span className="text-white">With </span>
-              <span className="text-gold">Proven Digital</span>
+              <span className="text-brand-gradient">Proven Digital</span>
               <br />
               <span className="text-white">Strategies</span>
             </h1>
@@ -143,10 +143,7 @@ export default function Hero() {
 
           {/* ── Right — SEO Performance Card ── */}
           <div className="hidden lg:block">
-            <div
-              className="card hover-lift rounded-[24px] p-6 relative overflow-hidden"
-              style={{ backdropFilter: 'blur(16px)' }}
-            >
+            <div className="glass hover-lift rounded-[24px] p-6 relative overflow-hidden">
               {/* Card header */}
               <div className="flex items-center justify-between mb-5">
                 <div>
@@ -166,8 +163,8 @@ export default function Hero() {
                 </div>
                 <div className="text-right">
                   <div
-                    className="text-[11px] font-semibold px-2.5 py-1 rounded-full"
-                    style={{ background: 'rgba(16,185,129,0.1)', color: '#34D399', border: '1px solid rgba(16,185,129,0.2)' }}
+                    className="glass-pill text-[11px] font-semibold px-2.5 py-1 rounded-full"
+                    style={{ color: '#34D399', borderColor: 'rgba(16,185,129,0.25)' }}
                   >
                     All-time high ↑
                   </div>

@@ -120,18 +120,18 @@ function ProjectCard({ p, delay }: { p: typeof projects[0]; delay: number }) {
             style={{ background: `linear-gradient(180deg, transparent 40%, ${p.accent}10 100%)` }} />
           <div
             className="w-20 h-20 rounded-[24px] flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
-            style={{ background: `${p.accent}14`, border: `1px solid ${p.accent}25`, color: p.accent }}
+            style={{ background: `${p.accent}14`, border: `1px solid ${p.accent}25`, color: p.accent, boxShadow: `0 12px 32px -12px ${p.accent}40` }}
           >
             <p.Icon />
           </div>
           {/* Category badge */}
-          <span className="absolute top-4 left-4 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
-            style={{ background: `${p.accent}20`, color: p.accent, border: `1px solid ${p.accent}30` }}>
+          <span className="glass-pill absolute top-4 left-4 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+            style={{ color: p.accent }}>
             {p.category}
           </span>
           {/* Result badge */}
           <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2 px-3 py-2 rounded-xl"
-            style={{ background: 'rgba(3,7,18,0.7)', border: `1px solid ${p.accent}25`, backdropFilter: 'blur(8px)' }}>
+            style={{ background: 'rgba(3,7,18,0.65)', border: `1px solid ${p.accent}25`, backdropFilter: 'blur(12px) saturate(160%)', WebkitBackdropFilter: 'blur(12px) saturate(160%)' }}>
             <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: p.accent }} />
             <span className="text-[12px] font-bold" style={{ color: p.accent }}>{p.result}</span>
           </div>

@@ -84,7 +84,7 @@ export default function Footer() {
       {/* ── CTA strip ── */}
       <div className="max-w-[1320px] mx-auto pt-16 pb-2">
         <div
-          className="card rounded-[32px] p-10 sm:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden"
+          className="glass hover-lift rounded-[32px] p-10 sm:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden"
         >
           <div
             className="absolute inset-0 opacity-[0.07] pointer-events-none"

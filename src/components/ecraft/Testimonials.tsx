@@ -80,14 +80,19 @@ function Card({ t, delay }: { t: typeof testimonials[0]; delay: number }) {
       className="card hover-lift fade-up flex flex-col gap-5 p-7 rounded-[24px]"
     >
       {/* Quote mark */}
-      <svg
-        className="w-7 h-7 flex-shrink-0 opacity-25"
-        fill="currentColor"
-        viewBox="0 0 32 32"
-        style={{ color: t.color }}
+      <div
+        className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+        style={{ background: `${t.color}12`, border: `1px solid ${t.color}22` }}
       >
-        <path d="M10 8C5.6 8 2 11.6 2 16v8h8v-8H6c0-2.2 1.8-4 4-4V8zm16 0c-4.4 0-8 3.6-8 8v8h8v-8h-4c0-2.2 1.8-4 4-4V8z" />
-      </svg>
+        <svg
+          className="w-5 h-5"
+          fill="currentColor"
+          viewBox="0 0 32 32"
+          style={{ color: t.color }}
+        >
+          <path d="M10 8C5.6 8 2 11.6 2 16v8h8v-8H6c0-2.2 1.8-4 4-4V8zm16 0c-4.4 0-8 3.6-8 8v8h8v-8h-4c0-2.2 1.8-4 4-4V8z" />
+        </svg>
+      </div>
 
       <p className="text-slate-300 text-[13.5px] leading-relaxed flex-1">
         {t.text}

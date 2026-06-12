@@ -23,6 +23,9 @@
   --select-color:#F8FAFC;
   --shadow-card: 0 1px 2px rgba(0,0,0,0.4), 0 20px 48px -20px rgba(0,0,0,0.6);
   --shadow-card-h: 0 1px 2px rgba(0,0,0,0.4), 0 28px 64px -20px rgba(0,0,0,0.65);
+  --glass-bg:     rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.12);
+  --glass-highlight: rgba(255,255,255,0.06);
 }
 
 html[data-theme="light"] {
@@ -45,6 +48,9 @@ html[data-theme="light"] {
   --select-color:#0F172A;
   --shadow-card: 0 1px 2px rgba(15,23,42,0.04), 0 20px 48px -24px rgba(15,23,42,0.14);
   --shadow-card-h: 0 1px 2px rgba(15,23,42,0.04), 0 28px 64px -24px rgba(15,23,42,0.2);
+  --glass-bg:     rgba(255,255,255,0.6);
+  --glass-border: rgba(255,255,255,0.8);
+  --glass-highlight: rgba(255,255,255,0.5);
 }
 
 @layer base {
@@ -75,6 +81,23 @@ html[data-theme="light"] {
     border-radius: 20px;
     box-shadow: var(--shadow-card);
     transition: background 0.4s cubic-bezier(.22,1,.36,1), border-color 0.4s cubic-bezier(.22,1,.36,1), box-shadow 0.4s cubic-bezier(.22,1,.36,1);
+  }
+
+  /* ── Glassmorphism panel ── */
+  .glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--shadow-card), inset 0 1px 0 var(--glass-highlight);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    transition: background 0.4s cubic-bezier(.22,1,.36,1), border-color 0.4s cubic-bezier(.22,1,.36,1), box-shadow 0.4s cubic-bezier(.22,1,.36,1), transform 0.4s cubic-bezier(.22,1,.36,1);
+  }
+  .glass-pill {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
   }
 
   /* ── Hover lift (cards, tiles) ── */
@@ -124,6 +147,12 @@ html[data-theme="light"] {
   }
   .btn-primary:hover::after { left: 125%; }
   .btn-primary:active { transform: translateY(0); }
+  .btn-primary svg, .btn-ghost svg {
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1);
+  }
+  .btn-primary:hover svg, .btn-ghost:hover svg {
+    transform: translateX(3px);
+  }
 
   .btn-ghost {
     position: relative;
@@ -158,6 +187,12 @@ html[data-theme="light"] {
   }
   .text-violet {
     background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-brand-gradient {
+    background: linear-gradient(120deg, #F59E0B 0%, #FBBF24 45%, #8B5CF6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

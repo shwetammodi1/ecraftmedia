@@ -116,8 +116,10 @@ function ServiceCard({
         {/* Icon + stat row */}
         <div className="flex items-start justify-between mb-5">
           <div
-            className="svc-icon"
-            style={{ background: `${s.color}12`, border: `1px solid ${s.color}20`, color: s.color }}
+            className="svc-icon group-hover:scale-110 group-hover:-translate-y-0.5"
+            style={{ background: `${s.color}12`, border: `1px solid ${s.color}20`, color: s.color, boxShadow: `0 8px 24px -10px ${s.color}00` }}
+            onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = `0 8px 24px -10px ${s.color}60` }}
+            onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = `0 8px 24px -10px ${s.color}00` }}
           >
             <s.Icon />
           </div>
