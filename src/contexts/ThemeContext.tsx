@@ -3,14 +3,14 @@ import { createContext, useContext, useEffect, useState, ReactNode } from 'react
 type Theme = 'dark' | 'light'
 
 const ThemeContext = createContext<{ theme: Theme; toggle: () => void }>({
-  theme: 'dark',
+  theme: 'light',
   toggle: () => {},
 })
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === 'undefined') return 'dark'
-    return (localStorage.getItem('ecraft-theme') as Theme) || 'dark'
+    if (typeof window === 'undefined') return 'light'
+    return (localStorage.getItem('ecraft-theme') as Theme) || 'light'
   })
 
   useEffect(() => {
