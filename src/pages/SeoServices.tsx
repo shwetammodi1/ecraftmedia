@@ -77,6 +77,15 @@ export default function SeoServices() {
           <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr] items-start mb-16">
             {/* Left — content */}
             <div className="space-y-8">
+              {/* Visual */}
+              <div className="rounded-[24px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
+                <img
+                  src="https://ecraftmedia.com/wp-content/uploads/2015/11/SEO-High-Quality-PNG.png"
+                  alt="SEO Services"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+
               <p className="text-slate-300 leading-relaxed text-base">
                 There are thousands of techniques are involved in order to enhance the ranking in search engine but it is really important to track the day to day protocols that are updated in independent globalized search engine. Search Engine Optimization is integrated with various part of digital service such as content, code strategies, web development and optimization.
               </p>
@@ -113,6 +122,15 @@ export default function SeoServices() {
 
             {/* Right — plans sidebar */}
             <div className="space-y-5">
+              {/* Visual */}
+              <div className="rounded-[24px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
+                <img
+                  src="https://ecraftmedia.com/wp-content/uploads/2018/05/seo-slide.png"
+                  alt="SEO Growth"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+
               {plans.map(plan => (
                 <div
                   key={plan.tier}

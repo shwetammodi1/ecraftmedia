@@ -140,6 +140,15 @@ export default function AppDevelopment() {
 
             {/* Right — aside */}
             <aside className="space-y-5">
+              {/* Visual */}
+              <div className="rounded-[28px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
+                <img
+                  src="https://ecraftmedia.com/wp-content/uploads/2018/06/Mobile-App-Development.png"
+                  alt="Mobile App Development"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+
               <div
                 className="card border-glow-card rounded-[28px] p-8"
                 style={{ background: 'rgba(139,92,246,0.04)', border: '1px solid rgba(139,92,246,0.15)' }}

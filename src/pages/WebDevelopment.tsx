@@ -85,6 +85,15 @@ export default function WebDevelopment() {
           <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-start mb-16">
             {/* Left */}
             <div className="space-y-8">
+              {/* Visual */}
+              <div className="rounded-[24px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
+                <img
+                  src="https://ecraftmedia.com/wp-content/uploads/2018/06/Custom-Web-Development.png"
+                  alt="Custom Web Development"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+
               <p className="text-slate-300 leading-relaxed text-base">
                 Ecraftmedia is eager to pushing the drawbacks of design and technology by constructing innovative and modernized web technology. In this modernized world, the website are playing a vital role in each and every business domain. As the day progress, the technology keep on upgrades similarly web service also enhances its service by making use of modern technology.
               </p>

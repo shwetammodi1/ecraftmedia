@@ -65,6 +65,15 @@ export default function DigitalMarketing() {
 
             {/* Right — CTA card */}
             <aside className="space-y-5">
+              {/* Visual */}
+              <div className="rounded-[28px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
+                <img
+                  src="https://ecraftmedia.com/wp-content/uploads/2018/06/1-2.jpg"
+                  alt="Digital Marketing"
+                  className="w-full h-auto object-contain rounded-[18px]"
+                />
+              </div>
+
               <div
                 className="card border-glow-card rounded-[28px] p-8"
                 style={{ background: 'rgba(16,185,129,0.04)', border: '1px solid rgba(16,185,129,0.15)' }}
