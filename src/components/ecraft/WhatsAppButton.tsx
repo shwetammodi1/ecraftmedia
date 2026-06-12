@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { ChatIcon } from './icons'
 
 const PHONE = '918850183944'
 const MESSAGE = 'Hi! I visited your website and would like to know more about your services.'
@@ -34,7 +35,7 @@ export default function WhatsAppButton() {
             maxWidth: '220px',
           }}
         >
-          <span className="text-base">👋</span>
+          <span className="text-emerald-400 flex-shrink-0"><ChatIcon className="w-[18px] h-[18px]" /></span>
           <div>
             <div className="font-semibold text-white text-xs">Chat with us!</div>
             <div className="text-slate-400 text-[11px] mt-0.5">We reply in minutes</div>

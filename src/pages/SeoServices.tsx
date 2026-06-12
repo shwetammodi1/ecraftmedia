@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import usePageMeta from '../hooks/usePageMeta'
+import { SearchIcon, LinkIcon, ChartBarIcon, SmartphoneIcon } from '../components/ecraft/icons'
 
 const plans = [
   {
@@ -106,13 +107,13 @@ export default function SeoServices() {
               {/* Feature highlights */}
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { icon: '🔍', title: 'On-Page SEO', desc: 'Technical optimization of every page for maximum search visibility.' },
-                  { icon: '🔗', title: 'Link Building', desc: 'High-quality backlinks to boost domain authority and page rank.' },
-                  { icon: '📊', title: 'Keyword Research', desc: 'Complete keyword analysis to target the right audience effectively.' },
-                  { icon: '📱', title: 'Local & Global SEO', desc: 'Rank locally and globally across all major search engines.' },
+                  { Icon: SearchIcon, title: 'On-Page SEO', desc: 'Technical optimization of every page for maximum search visibility.' },
+                  { Icon: LinkIcon, title: 'Link Building', desc: 'High-quality backlinks to boost domain authority and page rank.' },
+                  { Icon: ChartBarIcon, title: 'Keyword Research', desc: 'Complete keyword analysis to target the right audience effectively.' },
+                  { Icon: SmartphoneIcon, title: 'Local & Global SEO', desc: 'Rank locally and globally across all major search engines.' },
                 ].map(item => (
                   <div key={item.title} className="card border-glow-card rounded-[18px] p-5 group transition-all duration-300 hover:-translate-y-1">
-                    <div className="text-2xl mb-3">{item.icon}</div>
+                    <div className="text-amber-400 mb-3"><item.Icon className="w-6 h-6" /></div>
                     <h3 className="font-semibold text-white text-sm mb-1.5">{item.title}</h3>
                     <p className="text-slate-500 text-[13px] leading-relaxed">{item.desc}</p>
                   </div>
@@ -161,10 +162,10 @@ export default function SeoServices() {
                       <h2 className="font-display font-bold text-2xl text-white">SEO</h2>
                     </div>
                     <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center text-lg"
-                      style={{ background: `${plan.color}15`, border: `1px solid ${plan.color}25` }}
+                      className="w-10 h-10 rounded-xl flex items-center justify-center"
+                      style={{ background: `${plan.color}15`, border: `1px solid ${plan.color}25`, color: plan.color }}
                     >
-                      🔍
+                      <SearchIcon className="w-[18px] h-[18px]" />
                     </div>
                   </div>
                   <div className="space-y-1 mb-4">

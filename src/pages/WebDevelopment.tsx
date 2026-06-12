@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import usePageMeta from '../hooks/usePageMeta'
+import { CodeIcon } from '../components/ecraft/icons'
 
 const packages = [
   {
@@ -174,10 +175,10 @@ export default function WebDevelopment() {
                       <h2 className="font-display font-bold text-2xl text-white">Web Development</h2>
                     </div>
                     <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
-                      style={{ background: `${pkg.color}15`, border: `1px solid ${pkg.color}25` }}
+                      className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: `${pkg.color}15`, border: `1px solid ${pkg.color}25`, color: pkg.color }}
                     >
-                      💻
+                      <CodeIcon className="w-[18px] h-[18px]" />
                     </div>
                   </div>
                   <p className="text-sm mb-4" style={{ color: pkg.color }}>{pkg.label}</p>

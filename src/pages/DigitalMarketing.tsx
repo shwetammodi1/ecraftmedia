@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
 import usePageMeta from '../hooks/usePageMeta'
+import { SearchIcon, SmartphoneIcon, PencilIcon, MailIcon, ChartBarIcon, GlobeIcon } from '../components/ecraft/icons'
 
 const channels = [
-  { icon: '🔍', title: 'Search Engine Marketing', desc: 'Google Ads and paid search campaigns that reach high-intent buyers.' },
-  { icon: '📱', title: 'Social Media Marketing', desc: 'Facebook, Instagram, LinkedIn campaigns with creative strategy.' },
-  { icon: '✍️', title: 'Content Marketing', desc: 'Blogs, articles, and videos that build authority and organic traffic.' },
-  { icon: '📧', title: 'Email Campaigns', desc: 'Targeted email marketing for nurturing and converting leads.' },
-  { icon: '📊', title: 'Analytics & Reporting', desc: 'Data-driven insights to measure ROI and optimise your campaigns.' },
-  { icon: '🌐', title: 'Global Reach', desc: 'Multi-country campaigns reaching audiences across all major markets.' },
+  { Icon: SearchIcon, title: 'Search Engine Marketing', desc: 'Google Ads and paid search campaigns that reach high-intent buyers.' },
+  { Icon: SmartphoneIcon, title: 'Social Media Marketing', desc: 'Facebook, Instagram, LinkedIn campaigns with creative strategy.' },
+  { Icon: PencilIcon, title: 'Content Marketing', desc: 'Blogs, articles, and videos that build authority and organic traffic.' },
+  { Icon: MailIcon, title: 'Email Campaigns', desc: 'Targeted email marketing for nurturing and converting leads.' },
+  { Icon: ChartBarIcon, title: 'Analytics & Reporting', desc: 'Data-driven insights to measure ROI and optimise your campaigns.' },
+  { Icon: GlobeIcon, title: 'Global Reach', desc: 'Multi-country campaigns reaching audiences across all major markets.' },
 ]
 
 export default function DigitalMarketing() {
@@ -55,7 +56,7 @@ export default function DigitalMarketing() {
               <div className="grid sm:grid-cols-2 gap-4 mt-6">
                 {channels.map(ch => (
                   <div key={ch.title} className="card border-glow-card rounded-[18px] p-5 group transition-all duration-300 hover:-translate-y-1">
-                    <div className="text-2xl mb-3">{ch.icon}</div>
+                    <div className="text-emerald-400 mb-3"><ch.Icon className="w-6 h-6" /></div>
                     <h3 className="font-semibold text-white text-sm mb-1.5">{ch.title}</h3>
                     <p className="text-slate-500 text-[13px] leading-relaxed">{ch.desc}</p>
                   </div>

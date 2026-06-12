@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import usePageMeta from '../hooks/usePageMeta'
+import { DocumentIcon, LinkIcon } from '../components/ecraft/icons'
 
 const onPageFactors = [
   {
@@ -260,10 +261,10 @@ export default function Blogs() {
                 <div className="mb-10">
                   <div className="flex items-center gap-3 mb-6">
                     <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
-                      style={{ background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.2)' }}
+                      className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.2)', color: '#F59E0B' }}
                     >
-                      📄
+                      <DocumentIcon className="w-[18px] h-[18px]" />
                     </div>
                     <div>
                       <h3 className="font-display font-bold text-2xl text-white">On Page SEO Ranking Factors</h3>
@@ -281,10 +282,10 @@ export default function Blogs() {
                 <div className="mb-10">
                   <div className="flex items-center gap-3 mb-6">
                     <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
-                      style={{ background: 'rgba(139,92,246,0.12)', border: '1px solid rgba(139,92,246,0.2)' }}
+                      className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: 'rgba(139,92,246,0.12)', border: '1px solid rgba(139,92,246,0.2)', color: '#A78BFA' }}
                     >
-                      🔗
+                      <LinkIcon className="w-[18px] h-[18px]" />
                     </div>
                     <div>
                       <h3 className="font-display font-bold text-2xl text-white">Off Page SEO Ranking Factors</h3>

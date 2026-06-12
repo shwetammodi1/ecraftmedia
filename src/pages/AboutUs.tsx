@@ -1,12 +1,21 @@
 import { Link } from 'react-router-dom'
 import usePageMeta from '../hooks/usePageMeta'
+import { SearchIcon, MegaphoneIcon, CodeIcon, SmartphoneIcon, GlobeIcon, CalendarIcon, UsersIcon, HandshakeIcon, TrophyIcon } from '../components/ecraft/icons'
 
 const services = [
-  { icon: '🔍', name: 'Search Engine Optimization' },
-  { icon: '📣', name: 'Online Digital Marketing' },
-  { icon: '💻', name: 'Web Development' },
-  { icon: '📱', name: 'Application Development' },
-  { icon: '🌐', name: 'Internet Standards' },
+  { Icon: SearchIcon, name: 'Search Engine Optimization' },
+  { Icon: MegaphoneIcon, name: 'Online Digital Marketing' },
+  { Icon: CodeIcon, name: 'Web Development' },
+  { Icon: SmartphoneIcon, name: 'Application Development' },
+  { Icon: GlobeIcon, name: 'Internet Standards' },
+]
+
+const facts = [
+  { Icon: GlobeIcon, label: 'Global SEO & Web Development' },
+  { Icon: CalendarIcon, label: '10+ Years Experience' },
+  { Icon: UsersIcon, label: '20+ Expert Consultants' },
+  { Icon: HandshakeIcon, label: 'Worldwide Client Partnerships' },
+  { Icon: TrophyIcon, label: '500+ Projects Delivered' },
 ]
 
 const milestones = [
@@ -67,7 +76,7 @@ export default function AboutUs() {
                 <div className="grid sm:grid-cols-2 gap-3">
                   {services.map(s => (
                     <div key={s.name} className="card border-glow-card rounded-[16px] px-4 py-3 flex items-center gap-3 group transition-all duration-300 hover:-translate-y-0.5">
-                      <span className="text-xl">{s.icon}</span>
+                      <span className="text-amber-400 flex-shrink-0"><s.Icon className="w-5 h-5" /></span>
                       <span className="text-slate-300 text-sm font-medium group-hover:text-white transition-colors">{s.name}</span>
                     </div>
                   ))}
@@ -81,15 +90,9 @@ export default function AboutUs() {
               <div className="card border-glow-card rounded-[32px] p-8">
                 <div className="text-[11px] text-slate-500 uppercase tracking-[0.22em] mb-5 font-bold">Fast Facts</div>
                 <div className="space-y-4">
-                  {[
-                    { icon: '🌍', label: 'Global SEO & Web Development' },
-                    { icon: '📅', label: '10+ Years Experience' },
-                    { icon: '👥', label: '20+ Expert Consultants' },
-                    { icon: '🤝', label: 'Worldwide Client Partnerships' },
-                    { icon: '🏆', label: '500+ Projects Delivered' },
-                  ].map(item => (
+                  {facts.map(item => (
                     <div key={item.label} className="flex items-center gap-3">
-                      <span className="text-lg flex-shrink-0">{item.icon}</span>
+                      <span className="text-amber-400 flex-shrink-0"><item.Icon className="w-[18px] h-[18px]" /></span>
                       <span className="text-slate-300 text-sm">{item.label}</span>
                     </div>
                   ))}

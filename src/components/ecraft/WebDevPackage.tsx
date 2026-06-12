@@ -1,28 +1,55 @@
 import { useRef, useEffect } from 'react'
 
+const PaletteIcon = () => (
+  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9 9 0 110-18c4.97 0 9 3.582 9 8 0 1.105-.672 2-1.8 2h-2.55c-.95 0-1.65.826-1.65 1.7 0 .874.7 1.3 1.65 1.3.6 0 1.35.3 1.35 1.1 0 1.05-1.05 1.9-2.1 1.9H12z" />
+    <circle cx="7.5" cy="10.5" r="1.2" fill="currentColor" stroke="none" />
+    <circle cx="11" cy="7" r="1.2" fill="currentColor" stroke="none" />
+    <circle cx="15.5" cy="8" r="1.2" fill="currentColor" stroke="none" />
+  </svg>
+)
+
+const CodeIcon = () => (
+  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25M6.75 17.25L1.5 12l5.25-5.25M14.25 4.5l-4.5 15" />
+  </svg>
+)
+
+const BoltIcon = () => (
+  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+  </svg>
+)
+
+const ShieldIcon = () => (
+  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+  </svg>
+)
+
 const groups = [
   {
     title: 'Design',
     color: '#8B5CF6',
-    icon: '🎨',
+    Icon: PaletteIcon,
     items: ['Custom UI/UX Design', 'Responsive Layout', 'Brand Guidelines', 'Figma Prototyping'],
   },
   {
     title: 'Development',
     color: '#F59E0B',
-    icon: '💻',
+    Icon: CodeIcon,
     items: ['React / Next.js', 'WordPress / CMS', 'REST API Integration', 'E-Commerce (Shopify)'],
   },
   {
     title: 'Optimization',
     color: '#10B981',
-    icon: '⚡',
+    Icon: BoltIcon,
     items: ['Core Web Vitals', 'On-Page SEO Setup', 'Analytics & Tracking', 'Speed Optimization'],
   },
   {
     title: 'Support',
     color: '#EC4899',
-    icon: '🛡️',
+    Icon: ShieldIcon,
     items: ['SSL Certificate', '3 Months Free Support', 'Source Code Delivery', 'Training Session'],
   },
 ]
@@ -109,7 +136,7 @@ function FeatureGroup({ g, delay }: { g: typeof groups[0]; delay: number }) {
   return (
     <div ref={ref} className="fade-up p-6">
       <div className="flex items-center gap-2.5 mb-5">
-        <span className="text-xl">{g.icon}</span>
+        <span style={{ color: g.color }}><g.Icon /></span>
         <span className="text-[11px] font-bold uppercase tracking-widest" style={{ color: g.color }}>{g.title}</span>
       </div>
       <ul className="space-y-2.5">

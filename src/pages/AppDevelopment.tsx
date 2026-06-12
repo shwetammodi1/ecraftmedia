@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 import usePageMeta from '../hooks/usePageMeta'
+import { AppleIcon, AndroidIcon } from '../components/ecraft/icons'
 
 const platforms = [
   {
-    icon: '🍎',
+    Icon: AppleIcon,
     title: 'iPhone Application',
     subtitle: 'iOS Platform',
     color: '#8B5CF6',
@@ -11,7 +12,7 @@ const platforms = [
     tags: ['Swift / Objective-C', 'App Store Ready', 'Secure Architecture', 'High Performance'],
   },
   {
-    icon: '🤖',
+    Icon: AndroidIcon,
     title: 'Android Application',
     subtitle: 'Android Platform',
     color: '#10B981',
@@ -111,10 +112,10 @@ export default function AppDevelopment() {
                   >
                     <div className="flex items-center gap-3 mb-4">
                       <div
-                        className="w-12 h-12 rounded-[20px] flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110"
-                        style={{ background: `${p.color}12`, border: `1px solid ${p.color}25` }}
+                        className="w-12 h-12 rounded-[20px] flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                        style={{ background: `${p.color}12`, border: `1px solid ${p.color}25`, color: p.color }}
                       >
-                        {p.icon}
+                        <p.Icon className="w-6 h-6" />
                       </div>
                       <div>
                         <h3 className="font-display font-bold text-white text-base">{p.title}</h3>
