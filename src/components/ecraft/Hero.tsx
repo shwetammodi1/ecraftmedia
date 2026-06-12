@@ -6,7 +6,7 @@ const clientLogos = [
   'https://ecraftmedia.com/wp-content/uploads/2015/11/A3.png',
   'https://ecraftmedia.com/wp-content/uploads/2015/11/A4.png',
   'https://ecraftmedia.com/wp-content/uploads/2022/09/free-press-j.png',
-  'https://ecraftmedia.com/wp-content/uploads/2024/08/Logo-Finance360-Purple.png',
+  'https://ecraftmedia.com/wp-content/uploads/2015/11/A7.png',
 ]
 
 const metrics = [
