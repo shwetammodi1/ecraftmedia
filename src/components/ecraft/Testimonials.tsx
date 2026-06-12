@@ -77,11 +77,7 @@ function Card({ t, delay }: { t: typeof testimonials[0]; delay: number }) {
   return (
     <div
       ref={ref}
-      className="fade-up flex flex-col gap-5 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1"
-      style={{
-        background: 'var(--card-bg)',
-        border: '1px solid var(--border)',
-      }}
+      className="card hover-lift fade-up flex flex-col gap-5 p-7 rounded-[24px]"
     >
       {/* Quote mark */}
       <svg
@@ -132,14 +128,14 @@ export default function Testimonials() {
   }, [])
 
   return (
-    <section id="testimonials" className="py-28 px-4 relative overflow-hidden">
+    <section id="testimonials" className="py-32 px-4 relative overflow-hidden">
       <div
         className="orb w-96 h-96 bottom-0 left-0 opacity-[0.06]"
         style={{ background: 'radial-gradient(circle, #F59E0B, transparent)' }}
       />
 
       <div className="max-w-[1320px] mx-auto relative z-10">
-        <div ref={ref} className="fade-up mb-16">
+        <div ref={ref} className="fade-up mb-20">
           <div className="section-tag mb-5">Client Love</div>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <h2 className="font-display font-black text-4xl sm:text-5xl text-white leading-tight">

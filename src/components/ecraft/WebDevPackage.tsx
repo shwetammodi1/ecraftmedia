@@ -38,9 +38,9 @@ export default function WebDevPackage() {
   }, [])
 
   return (
-    <section id="web-dev" className="py-28 px-4" style={{ background: 'var(--page-bg-alt)' }}>
+    <section id="web-dev" className="py-32 px-4" style={{ background: 'var(--page-bg-alt)' }}>
       <div className="max-w-[1320px] mx-auto">
-        <div ref={ref} className="fade-up text-center mb-16">
+        <div ref={ref} className="fade-up text-center mb-20">
           <div className="section-tag section-tag-violet mx-auto mb-5">Web Development</div>
           <h2 className="font-display font-black text-4xl sm:text-5xl xl:text-6xl text-white leading-tight mb-5">
             Everything You Need<br />
@@ -51,7 +51,7 @@ export default function WebDevPackage() {
           </p>
         </div>
 
-        <div className="card rounded-[28px] overflow-hidden">
+        <div className="card rounded-[32px] overflow-hidden">
           {/* Top banner */}
           <div className="px-8 py-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 border-b border-white/[0.06]"
             style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.12), rgba(139,92,246,0.04))' }}>
@@ -65,7 +65,7 @@ export default function WebDevPackage() {
             </div>
             <button
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex-shrink-0 px-8 py-3.5 rounded-2xl font-bold text-sm text-white transition-all duration-300 hover:-translate-y-1"
+              className="flex-shrink-0 px-8 py-3.5 rounded-[20px] font-bold text-sm text-white transition-all duration-300 hover:-translate-y-1"
               style={{ background: 'linear-gradient(135deg, #8B5CF6, #7C3AED)', boxShadow: '0 10px 30px rgba(139,92,246,0.35)' }}>
               Get a Custom Quote
             </button>

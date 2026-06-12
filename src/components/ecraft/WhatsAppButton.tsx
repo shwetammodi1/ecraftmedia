@@ -26,7 +26,7 @@ export default function WhatsAppButton() {
       {/* Tooltip bubble */}
       {tooltip && (
         <div
-          className="flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-medium text-white shadow-2xl animate-fade-up"
+          className="flex items-center gap-3 px-4 py-3 rounded-[20px] text-sm font-medium text-white shadow-2xl animate-fade-up"
           style={{
             background: 'rgba(10,14,26,0.95)',
             border: '1px solid rgba(255,255,255,0.1)',

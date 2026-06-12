@@ -38,12 +38,12 @@ export default function SeoPackages() {
   }, [])
 
   return (
-    <section id="seo" className="py-28 px-4 relative overflow-hidden">
+    <section id="seo" className="py-32 px-4 relative overflow-hidden">
       <div className="orb w-[500px] h-[500px] top-0 left-1/2 -translate-x-1/2 opacity-[0.06]"
         style={{ background: 'radial-gradient(circle, #F59E0B, transparent)' }} />
 
       <div className="max-w-[1320px] mx-auto relative z-10">
-        <div ref={ref} className="fade-up text-center mb-16">
+        <div ref={ref} className="fade-up text-center mb-20">
           <div className="section-tag mx-auto mb-5">SEO Packages</div>
           <h2 className="font-display font-black text-4xl sm:text-5xl xl:text-6xl text-white leading-tight mb-5">
             Rank Higher,<br />
@@ -86,7 +86,7 @@ function PlanCard({ p, delay }: { p: typeof plans[0]; delay: number }) {
         </div>
       )}
 
-      <div className={`card rounded-[24px] p-7 transition-all duration-500 hover:-translate-y-2 ${isPopular ? 'ring-1' : ''}`}
+      <div className={`card rounded-[28px] p-7 transition-all duration-500 hover:-translate-y-2 ${isPopular ? 'ring-1' : ''}`}
         style={isPopular ? {
           background: `linear-gradient(135deg, ${p.color}12, ${p.color}06)`,
           border: `1px solid ${p.color}35`,
@@ -125,7 +125,7 @@ function PlanCard({ p, delay }: { p: typeof plans[0]; delay: number }) {
 
         <button
           onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-          className="w-full py-3.5 rounded-2xl font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5"
+          className="w-full py-3.5 rounded-[20px] font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5"
           style={isPopular
             ? { background: `linear-gradient(135deg, ${p.color}, ${p.color}cc)`, color: '#030712', boxShadow: `0 8px 24px ${p.color}40` }
             : { background: `${p.color}10`, color: p.color, border: `1px solid ${p.color}25` }}>

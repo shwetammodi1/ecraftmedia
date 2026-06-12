@@ -56,13 +56,13 @@ export default function SeoServices() {
   return (
     <main className="min-h-screen bg-base text-white">
       {/* Hero */}
-      <section className="relative overflow-hidden px-4 py-24">
+      <section className="relative overflow-hidden px-4 py-32">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(245,158,11,0.16),_transparent_35%)] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(139,92,246,0.10),_transparent_35%)] pointer-events-none" />
 
         <div className="max-w-[1320px] mx-auto relative z-10">
           {/* Page header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <div className="section-tag mx-auto mb-5">SEO Services</div>
             <h1 className="font-display font-black text-5xl sm:text-6xl xl:text-7xl leading-tight tracking-tight mb-6">
               Search Engine Optimization<br />
@@ -74,11 +74,11 @@ export default function SeoServices() {
           </div>
 
           {/* Main grid */}
-          <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr] items-start mb-16">
+          <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr] items-start mb-20">
             {/* Left — content */}
             <div className="space-y-8">
               {/* Visual */}
-              <div className="rounded-[24px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
+              <div className="rounded-[28px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
                 <img
                   src="https://ecraftmedia.com/wp-content/uploads/2015/11/SEO-High-Quality-PNG.png"
                   alt="SEO Services"
@@ -92,7 +92,7 @@ export default function SeoServices() {
 
               {/* Highlight box */}
               <div
-                className="rounded-[24px] p-8"
+                className="rounded-[28px] p-8"
                 style={{ background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.15)' }}
               >
                 <h2 className="font-display font-bold text-2xl text-white mb-4">
@@ -123,7 +123,7 @@ export default function SeoServices() {
             {/* Right — plans sidebar */}
             <div className="space-y-5">
               {/* Visual */}
-              <div className="rounded-[24px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
+              <div className="rounded-[28px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
                 <img
                   src="https://ecraftmedia.com/wp-content/uploads/2018/05/seo-slide.png"
                   alt="SEO Growth"
@@ -134,7 +134,7 @@ export default function SeoServices() {
               {plans.map(plan => (
                 <div
                   key={plan.tier}
-                  className="relative card border-glow-card rounded-[24px] p-6 transition-all duration-300 hover:-translate-y-1"
+                  className="relative card border-glow-card rounded-[28px] p-6 transition-all duration-300 hover:-translate-y-1"
                   style={
                     plan.popular
                       ? {
@@ -189,7 +189,7 @@ export default function SeoServices() {
                   </ul>
                   <Link
                     to="/contacts"
-                    className="inline-flex items-center justify-center w-full py-3 rounded-2xl font-semibold text-sm transition-all duration-300"
+                    className="inline-flex items-center justify-center w-full py-3 rounded-[20px] font-semibold text-sm transition-all duration-300"
                     style={
                       plan.popular
                         ? {
@@ -213,7 +213,7 @@ export default function SeoServices() {
 
           {/* Comparison bar */}
           <div
-            className="rounded-[28px] p-8 mb-12 grid sm:grid-cols-3 gap-8 text-center"
+            className="rounded-[32px] p-8 mb-12 grid sm:grid-cols-3 gap-8 text-center"
             style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
           >
             {[
@@ -230,7 +230,7 @@ export default function SeoServices() {
 
           {/* CTA */}
           <div
-            className="rounded-[28px] p-10 text-center"
+            className="rounded-[32px] p-10 text-center"
             style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.07), rgba(139,92,246,0.05))', border: '1px solid rgba(245,158,11,0.12)' }}
           >
             <h2 className="font-display font-bold text-3xl text-white mb-3">Not enough for your seo needs?</h2>

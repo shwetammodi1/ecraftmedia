@@ -26,16 +26,14 @@ function StatItem({ stat }: { stat: typeof stats[0] }) {
 
 export default function StatsBar() {
   return (
-    <section className="py-16 px-4">
+    <section className="py-20 px-4">
       <div className="max-w-[1320px] mx-auto">
-        <div
-          className="rounded-2xl py-10 px-6"
-          style={{
-            background: 'var(--card-bg)',
-            border: '1px solid var(--border)',
-          }}
-        >
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 divide-y-2 lg:divide-y-0 lg:divide-x"
+        <div className="card rounded-[28px] py-12 px-6 relative overflow-hidden">
+          <div
+            className="absolute inset-0 opacity-[0.05] pointer-events-none"
+            style={{ background: 'linear-gradient(120deg, #8B5CF6, transparent 45%, #F59E0B 85%)' }}
+          />
+          <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 divide-y-2 lg:divide-y-0 lg:divide-x"
             style={{ borderColor: 'var(--border)' }}>
             {stats.map((s, i) => (
               <div

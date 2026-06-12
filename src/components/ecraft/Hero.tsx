@@ -35,16 +35,26 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{ background: 'var(--page-bg)' }}
     >
+      {/* Mesh gradient backdrop */}
+      <div className="mesh-gradient absolute inset-0 pointer-events-none" />
+
       {/* Subtle grid */}
       <div className="absolute inset-0 grid-pattern opacity-100 pointer-events-none" />
 
-      {/* Single ambient glow */}
+      {/* Grain texture */}
+      <div className="noise-overlay" />
+
+      {/* Ambient glows */}
       <div
-        className="orb w-[700px] h-[700px] -top-48 -left-64 opacity-[0.09]"
+        className="orb w-[700px] h-[700px] -top-48 -left-64 opacity-[0.1] animate-float-slow"
         style={{ background: 'radial-gradient(circle, #8B5CF6, transparent)' }}
       />
+      <div
+        className="orb w-[500px] h-[500px] bottom-0 -right-40 opacity-[0.08] animate-float"
+        style={{ background: 'radial-gradient(circle, #F59E0B, transparent)' }}
+      />
 
-      <div className="relative z-10 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 w-full">
+      <div className="relative z-10 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 w-full">
         <div className="grid lg:grid-cols-[1fr_480px] gap-16 items-center">
 
           {/* ── Left ── */}
@@ -57,8 +67,8 @@ export default function Hero() {
 
             {/* Headline */}
             <h1
-              className="font-display font-black leading-[1.05] tracking-tight mb-6"
-              style={{ fontSize: 'clamp(2.6rem, 5vw, 4.25rem)' }}
+              className="font-display font-black leading-[1.04] tracking-[-0.02em] mb-6"
+              style={{ fontSize: 'clamp(2.75rem, 5.5vw, 4.75rem)' }}
             >
               <span className="text-white">Grow Your Business</span>
               <br />
@@ -134,12 +144,8 @@ export default function Hero() {
           {/* ── Right — SEO Performance Card ── */}
           <div className="hidden lg:block">
             <div
-              className="rounded-2xl p-6 relative overflow-hidden"
-              style={{
-                background: 'var(--card-bg)',
-                border: '1px solid var(--border)',
-                backdropFilter: 'blur(16px)',
-              }}
+              className="card hover-lift rounded-[24px] p-6 relative overflow-hidden"
+              style={{ backdropFilter: 'blur(16px)' }}
             >
               {/* Card header */}
               <div className="flex items-center justify-between mb-5">

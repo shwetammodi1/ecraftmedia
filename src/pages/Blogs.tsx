@@ -187,7 +187,7 @@ export default function Blogs() {
   return (
     <main className="min-h-screen bg-base text-white">
       {/* Page hero */}
-      <section className="relative overflow-hidden px-4 py-24">
+      <section className="relative overflow-hidden px-4 py-32">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(245,158,11,0.12),_transparent_40%)] pointer-events-none" />
         <div className="max-w-[1320px] mx-auto relative z-10">
           <div className="text-center mb-12">
@@ -203,7 +203,7 @@ export default function Blogs() {
           {/* Blog post card */}
           <article className="max-w-4xl mx-auto">
             {/* Post header */}
-            <div className="card border-glow-card rounded-[28px] overflow-hidden mb-8">
+            <div className="card border-glow-card rounded-[32px] overflow-hidden mb-8">
               <div
                 className="px-8 py-8"
                 style={{ borderBottom: '1px solid var(--border)', background: 'linear-gradient(135deg, rgba(245,158,11,0.08), rgba(139,92,246,0.06))' }}
@@ -242,7 +242,7 @@ export default function Blogs() {
               {/* Introduction */}
               <div className="px-8 py-8">
                 <div
-                  className="p-6 rounded-2xl mb-8"
+                  className="p-6 rounded-[20px] mb-8"
                   style={{ background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.15)' }}
                 >
                   <p className="text-slate-200 text-base leading-relaxed">
@@ -300,7 +300,7 @@ export default function Blogs() {
 
                 {/* Closing */}
                 <div
-                  className="p-6 rounded-2xl"
+                  className="p-6 rounded-[20px]"
                   style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.15)' }}
                 >
                   <p className="text-slate-200 text-base leading-relaxed">
@@ -311,7 +311,7 @@ export default function Blogs() {
             </div>
 
             {/* Comment form */}
-            <div className="card border-glow-card rounded-[28px] p-8 mb-8">
+            <div className="card border-glow-card rounded-[32px] p-8 mb-8">
               <h3 className="font-display font-bold text-xl text-white mb-2">Leave a Reply</h3>
               <p className="text-slate-500 text-sm mb-6">
                 Your email address will not be published. Required fields are marked{' '}
@@ -324,7 +324,7 @@ export default function Blogs() {
                   </label>
                   <textarea
                     rows={5}
-                    className="w-full rounded-2xl border border-white/[0.06] bg-[#02050B] px-4 py-3 text-sm text-white outline-none transition focus:border-gold"
+                    className="w-full rounded-[20px] border border-white/[0.06] bg-[#02050B] px-4 py-3 text-sm text-white outline-none transition focus:border-gold"
                     style={{ resize: 'none' }}
                   />
                 </div>
@@ -336,7 +336,7 @@ export default function Blogs() {
                       </label>
                       <input
                         type={label === 'Email *' ? 'email' : label === 'Website' ? 'url' : 'text'}
-                        className="w-full rounded-2xl border border-white/[0.06] bg-[#02050B] px-4 py-3 text-sm text-white outline-none transition focus:border-gold"
+                        className="w-full rounded-[20px] border border-white/[0.06] bg-[#02050B] px-4 py-3 text-sm text-white outline-none transition focus:border-gold"
                       />
                     </div>
                   ))}
@@ -363,7 +363,7 @@ export default function Blogs() {
       <section className="px-4 pb-20">
         <div className="max-w-[1320px] mx-auto">
           <div
-            className="rounded-[28px] p-10 text-center"
+            className="rounded-[32px] p-10 text-center"
             style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.07), rgba(139,92,246,0.05))', border: '1px solid var(--border)' }}
           >
             <h2 className="font-display font-bold text-3xl text-white mb-3">

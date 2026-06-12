@@ -19,13 +19,13 @@ export default function DigitalMarketing() {
   return (
     <main className="min-h-screen bg-base text-white">
       {/* Hero */}
-      <section className="relative overflow-hidden px-4 py-24">
+      <section className="relative overflow-hidden px-4 py-32">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(16,185,129,0.14),_transparent_35%)] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(236,72,153,0.08),_transparent_35%)] pointer-events-none" />
 
         <div className="max-w-[1320px] mx-auto relative z-10">
           {/* Page header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <div
               className="section-tag mx-auto mb-5"
               style={{ background: 'rgba(16,185,129,0.08)', borderColor: 'rgba(16,185,129,0.2)', color: '#10B981' }}
@@ -38,7 +38,7 @@ export default function DigitalMarketing() {
           </div>
 
           {/* Main grid */}
-          <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-start mb-16">
+          <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-start mb-20">
             {/* Left — content */}
             <div className="space-y-8 text-slate-300 leading-relaxed text-base">
               <p>
@@ -66,7 +66,7 @@ export default function DigitalMarketing() {
             {/* Right — CTA card */}
             <aside className="space-y-5">
               {/* Visual */}
-              <div className="rounded-[28px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
+              <div className="rounded-[32px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
                 <img
                   src="https://ecraftmedia.com/wp-content/uploads/2018/06/1-2.jpg"
                   alt="Digital Marketing"
@@ -75,7 +75,7 @@ export default function DigitalMarketing() {
               </div>
 
               <div
-                className="card border-glow-card rounded-[28px] p-8"
+                className="card border-glow-card rounded-[32px] p-8"
                 style={{ background: 'rgba(16,185,129,0.04)', border: '1px solid rgba(16,185,129,0.15)' }}
               >
                 <h2 className="font-display font-bold text-2xl text-white mb-4">Global Digital Strategy</h2>
@@ -88,7 +88,7 @@ export default function DigitalMarketing() {
               </div>
 
               {/* Stats */}
-              <div className="card rounded-[24px] p-6">
+              <div className="card rounded-[28px] p-6">
                 <h3 className="text-[11px] uppercase tracking-widest text-slate-500 mb-5 font-bold">Our Results</h3>
                 <div className="space-y-4">
                   {[
@@ -107,7 +107,7 @@ export default function DigitalMarketing() {
 
               {/* Call CTA */}
               <div
-                className="card rounded-[24px] p-6 text-center"
+                className="card rounded-[28px] p-6 text-center"
                 style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.07), rgba(139,92,246,0.05))', border: '1px solid rgba(245,158,11,0.12)' }}
               >
                 <p className="text-slate-400 text-sm mb-4">Ready to scale your brand globally?</p>
@@ -121,7 +121,7 @@ export default function DigitalMarketing() {
 
           {/* CTA */}
           <div
-            className="rounded-[28px] p-10 text-center"
+            className="rounded-[32px] p-10 text-center"
             style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.07), rgba(245,158,11,0.05))', border: '1px solid rgba(16,185,129,0.12)' }}
           >
             <h2 className="font-display font-bold text-3xl text-white mb-3">Not enough for your seo needs?</h2>

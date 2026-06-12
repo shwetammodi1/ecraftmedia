@@ -66,7 +66,7 @@ export default function ClientLogos() {
             style={{
               background: cardBg,
               border: cardBorder,
-              borderRadius: '10px',
+              borderRadius: '12px',
               padding: '8px 18px',
               height: '54px',
               width: '130px',

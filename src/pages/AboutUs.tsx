@@ -25,13 +25,13 @@ export default function AboutUs() {
   return (
     <main className="min-h-screen bg-base text-white">
       {/* Hero */}
-      <section className="relative overflow-hidden px-4 py-24">
+      <section className="relative overflow-hidden px-4 py-32">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(245,158,11,0.15),_transparent_40%)] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(139,92,246,0.08),_transparent_35%)] pointer-events-none" />
 
         <div className="max-w-[1320px] mx-auto relative z-10">
           {/* Page header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <div className="section-tag mx-auto mb-5">About Us</div>
             <h1 className="font-display font-black text-5xl sm:text-6xl xl:text-7xl leading-tight tracking-tight">
               About <span className="text-gold">Ecraft Media</span>
@@ -39,7 +39,7 @@ export default function AboutUs() {
           </div>
 
           {/* Main grid */}
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-start mb-16">
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-start mb-20">
             {/* Left — story */}
             <div className="space-y-8 text-slate-300 text-base leading-relaxed">
               <p>
@@ -78,7 +78,7 @@ export default function AboutUs() {
             {/* Right — sidebar */}
             <aside className="space-y-6">
               {/* Fast Facts */}
-              <div className="card border-glow-card rounded-[28px] p-8">
+              <div className="card border-glow-card rounded-[32px] p-8">
                 <div className="text-[11px] text-slate-500 uppercase tracking-[0.22em] mb-5 font-bold">Fast Facts</div>
                 <div className="space-y-4">
                   {[
@@ -97,7 +97,7 @@ export default function AboutUs() {
               </div>
 
               {/* Timeline */}
-              <div className="card rounded-[28px] p-8">
+              <div className="card rounded-[32px] p-8">
                 <div className="text-[11px] text-slate-500 uppercase tracking-[0.22em] mb-5 font-bold">Our Journey</div>
                 <div className="space-y-5">
                   {milestones.map((m, i) => (
@@ -124,7 +124,7 @@ export default function AboutUs() {
 
               {/* CTA */}
               <div
-                className="rounded-[28px] p-7 text-center"
+                className="rounded-[32px] p-7 text-center"
                 style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.08), rgba(139,92,246,0.06))', border: '1px solid rgba(245,158,11,0.15)' }}
               >
                 <div className="section-tag mx-auto mb-4">Join Our Growth</div>
@@ -140,7 +140,7 @@ export default function AboutUs() {
 
           {/* Stats row */}
           <div
-            className="rounded-[28px] p-8 grid grid-cols-2 sm:grid-cols-4 gap-8 text-center mb-8"
+            className="rounded-[32px] p-8 grid grid-cols-2 sm:grid-cols-4 gap-8 text-center mb-8"
             style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
           >
             {[

@@ -68,13 +68,13 @@ export default function WebDevelopment() {
   return (
     <main className="min-h-screen bg-base text-white">
       {/* Hero */}
-      <section className="relative overflow-hidden px-4 py-24">
+      <section className="relative overflow-hidden px-4 py-32">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(139,92,246,0.16),_transparent_35%)] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(245,158,11,0.08),_transparent_35%)] pointer-events-none" />
 
         <div className="max-w-[1320px] mx-auto relative z-10">
           {/* Page header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <div className="section-tag section-tag-violet mx-auto mb-5">Web Development</div>
             <h1 className="font-display font-black text-5xl sm:text-6xl xl:text-7xl leading-tight tracking-tight">
               Web <span className="text-violet">Development</span>
@@ -82,11 +82,11 @@ export default function WebDevelopment() {
           </div>
 
           {/* Content + packages */}
-          <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-start mb-16">
+          <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-start mb-20">
             {/* Left */}
             <div className="space-y-8">
               {/* Visual */}
-              <div className="rounded-[24px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
+              <div className="rounded-[28px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
                 <img
                   src="https://ecraftmedia.com/wp-content/uploads/2018/06/Custom-Web-Development.png"
                   alt="Custom Web Development"
@@ -106,7 +106,7 @@ export default function WebDevelopment() {
 
               {/* Features card */}
               <div
-                className="rounded-[24px] p-8"
+                className="rounded-[28px] p-8"
                 style={{ background: 'rgba(139,92,246,0.05)', border: '1px solid rgba(139,92,246,0.15)' }}
               >
                 <h2 className="font-display font-bold text-xl text-white mb-5">
@@ -149,7 +149,7 @@ export default function WebDevelopment() {
               {packages.map(pkg => (
                 <div
                   key={pkg.name}
-                  className="relative card border-glow-card rounded-[24px] p-6 transition-all duration-300 hover:-translate-y-1"
+                  className="relative card border-glow-card rounded-[28px] p-6 transition-all duration-300 hover:-translate-y-1"
                   style={
                     pkg.popular
                       ? {
@@ -199,7 +199,7 @@ export default function WebDevelopment() {
                   </ul>
                   <Link
                     to="/contacts"
-                    className="inline-flex items-center justify-center w-full py-3 rounded-2xl font-semibold text-sm transition-all duration-300"
+                    className="inline-flex items-center justify-center w-full py-3 rounded-[20px] font-semibold text-sm transition-all duration-300"
                     style={
                       pkg.popular
                         ? {
@@ -223,7 +223,7 @@ export default function WebDevelopment() {
 
           {/* CTA */}
           <div
-            className="rounded-[28px] p-10 text-center"
+            className="rounded-[32px] p-10 text-center"
             style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.07), rgba(245,158,11,0.05))', border: '1px solid rgba(139,92,246,0.12)' }}
           >
             <h2 className="font-display font-bold text-3xl text-white mb-3">Not enough for your seo needs?</h2>

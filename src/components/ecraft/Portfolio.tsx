@@ -109,16 +109,17 @@ function ProjectCard({ p, delay }: { p: typeof projects[0]; delay: number }) {
 
   return (
     <div ref={ref} className="fade-up group cursor-default">
-      <div className="card rounded-[20px] overflow-hidden transition-all duration-500 group-hover:-translate-y-2 h-full"
-        style={{ background: p.gradient, border: `1px solid ${p.accent}18` }}
-        onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = `0 24px 64px ${p.accent}20` }}
-        onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = 'none' }}>
+      <div className="card hover-lift rounded-[24px] overflow-hidden h-full"
+        style={{ background: p.gradient, border: `1px solid ${p.accent}18` }}>
 
         {/* Visual area */}
         <div className="relative h-44 flex items-center justify-center overflow-hidden"
           style={{ background: `${p.accent}08` }}>
+          {/* Gradient overlay for depth */}
+          <div className="absolute inset-0 pointer-events-none"
+            style={{ background: `linear-gradient(180deg, transparent 40%, ${p.accent}10 100%)` }} />
           <div
-            className="w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110"
+            className="w-20 h-20 rounded-[24px] flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
             style={{ background: `${p.accent}14`, border: `1px solid ${p.accent}25`, color: p.accent }}
           >
             <p.Icon />
@@ -137,7 +138,7 @@ function ProjectCard({ p, delay }: { p: typeof projects[0]; delay: number }) {
         </div>
 
         {/* Info */}
-        <div className="p-5">
+        <div className="p-6">
           <h3 className="font-display font-bold text-lg text-white mb-1">{p.title}</h3>
           <p className="text-[12px] text-slate-500 font-medium">{p.type}</p>
         </div>
@@ -157,7 +158,7 @@ export default function Portfolio() {
   }, [])
 
   return (
-    <section id="portfolio" className="py-28 px-4 relative" style={{ background: 'var(--page-bg-alt)' }}>
+    <section id="portfolio" className="py-32 px-4 relative" style={{ background: 'var(--page-bg-alt)' }}>
       <div className="orb w-96 h-96 top-0 right-0 opacity-[0.07]"
         style={{ background: 'radial-gradient(circle, #8B5CF6, transparent)' }} />
 

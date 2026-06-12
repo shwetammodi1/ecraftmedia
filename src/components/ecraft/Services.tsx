@@ -101,11 +101,7 @@ function ServiceCard({
       className="fade-up group h-full"
     >
       <div
-        className="h-full flex flex-col p-7 rounded-2xl transition-all duration-300"
-        style={{
-          background: 'var(--card-bg)',
-          border: '1px solid var(--border)',
-        }}
+        className="card hover-lift h-full flex flex-col p-8 rounded-[24px]"
         onMouseEnter={e => {
           const el = e.currentTarget as HTMLDivElement
           el.style.borderColor = `${s.color}30`
@@ -185,11 +181,11 @@ export default function Services() {
   }, [])
 
   return (
-    <section id="services" className="py-28 px-4">
+    <section id="services" className="py-32 px-4">
       <div className="max-w-[1320px] mx-auto">
 
         {/* Header */}
-        <div ref={ref} className="fade-up mb-16">
+        <div ref={ref} className="fade-up mb-20">
           <div className="section-tag mb-5">Our Expertise</div>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
             <h2 className="font-display font-black text-4xl sm:text-5xl text-white leading-tight">

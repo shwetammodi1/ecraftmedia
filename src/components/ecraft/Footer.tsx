@@ -82,31 +82,37 @@ export default function Footer() {
       style={{ background: 'var(--page-bg-alt, var(--page-bg))', borderTop: '1px solid var(--border)' }}
     >
       {/* ── CTA strip ── */}
-      <div
-        className="max-w-[1320px] mx-auto py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
-        style={{ borderBottom: '1px solid var(--border)' }}
-      >
-        <div>
+      <div className="max-w-[1320px] mx-auto pt-16 pb-2">
+        <div
+          className="card rounded-[32px] p-10 sm:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden"
+        >
+          <div
+            className="absolute inset-0 opacity-[0.07] pointer-events-none"
+            style={{ background: 'linear-gradient(120deg, #8B5CF6, transparent 45%, #F59E0B 90%)' }}
+          />
+          <div className="orb w-72 h-72 -top-20 -right-20 opacity-[0.1]" style={{ background: 'radial-gradient(circle, #F59E0B, transparent)' }} />
+          <div className="relative z-10">
           <h2 className="font-display font-black text-3xl sm:text-4xl text-white leading-tight mb-2">
             Ready to grow your business?
           </h2>
           <p className="text-slate-500 text-base max-w-md">
             Book a free strategy call. No obligations, just real insights for your brand.
           </p>
-        </div>
-        <div className="flex flex-wrap gap-3 flex-shrink-0">
-          <Link to="/contacts" className="btn-primary">
-            Get Free Consultation
-          </Link>
-          <a
-            href="tel:+918850183944"
-            className="btn-ghost"
-          >
-            <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
-            +91 88501 83944
-          </a>
+          </div>
+          <div className="flex flex-wrap gap-3 flex-shrink-0 relative z-10">
+            <Link to="/contacts" className="btn-primary">
+              Get Free Consultation
+            </Link>
+            <a
+              href="tel:+918850183944"
+              className="btn-ghost"
+            >
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              +91 88501 83944
+            </a>
+          </div>
         </div>
       </div>
 
@@ -181,7 +187,7 @@ export default function Footer() {
 
         {/* Contact bar */}
         <div
-          className="mb-10 p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-10"
+          className="mb-10 p-5 rounded-[20px] flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-10"
           style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
         >
           <a href="tel:+918850183944"

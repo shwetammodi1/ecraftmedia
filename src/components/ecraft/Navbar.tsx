@@ -92,9 +92,10 @@ export default function Navbar() {
               >
                 {l.label}
                 <span
-                  className={`absolute bottom-1 left-2.5 right-2.5 h-px bg-amber-400 transition-transform duration-300 origin-left rounded-full ${
+                  className={`absolute bottom-1 left-2.5 right-2.5 h-[2px] transition-transform duration-300 origin-left rounded-full ${
                     isActive(l.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                   }`}
+                  style={{ background: 'linear-gradient(90deg, #F59E0B, #FBBF24)' }}
                 />
               </Link>
             ))}

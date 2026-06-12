@@ -40,13 +40,13 @@ export default function AppDevelopment() {
   return (
     <main className="min-h-screen bg-base text-white">
       {/* Hero */}
-      <section className="relative overflow-hidden px-4 py-24">
+      <section className="relative overflow-hidden px-4 py-32">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(139,92,246,0.14),_transparent_35%)] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.10),_transparent_35%)] pointer-events-none" />
 
         <div className="max-w-[1320px] mx-auto relative z-10">
           {/* Page header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <div
               className="section-tag mx-auto mb-5"
               style={{ background: 'rgba(139,92,246,0.08)', borderColor: 'rgba(139,92,246,0.2)', color: '#A78BFA' }}
@@ -59,7 +59,7 @@ export default function AppDevelopment() {
           </div>
 
           {/* Main grid */}
-          <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-start mb-16">
+          <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-start mb-20">
             {/* Left — content */}
             <div className="space-y-8 text-slate-300 leading-relaxed text-base">
               <p>
@@ -111,7 +111,7 @@ export default function AppDevelopment() {
                   >
                     <div className="flex items-center gap-3 mb-4">
                       <div
-                        className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110"
+                        className="w-12 h-12 rounded-[20px] flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110"
                         style={{ background: `${p.color}12`, border: `1px solid ${p.color}25` }}
                       >
                         {p.icon}
@@ -141,7 +141,7 @@ export default function AppDevelopment() {
             {/* Right — aside */}
             <aside className="space-y-5">
               {/* Visual */}
-              <div className="rounded-[28px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
+              <div className="rounded-[32px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
                 <img
                   src="https://ecraftmedia.com/wp-content/uploads/2018/06/Mobile-App-Development.png"
                   alt="Mobile App Development"
@@ -150,7 +150,7 @@ export default function AppDevelopment() {
               </div>
 
               <div
-                className="card border-glow-card rounded-[28px] p-8"
+                className="card border-glow-card rounded-[32px] p-8"
                 style={{ background: 'rgba(139,92,246,0.04)', border: '1px solid rgba(139,92,246,0.15)' }}
               >
                 <h2 className="font-display font-bold text-2xl text-white mb-4">Mobile App Excellence</h2>
@@ -163,7 +163,7 @@ export default function AppDevelopment() {
               </div>
 
               {/* Stats */}
-              <div className="card rounded-[24px] p-6">
+              <div className="card rounded-[28px] p-6">
                 <h3 className="text-[11px] uppercase tracking-widest text-slate-500 mb-5 font-bold">App Performance</h3>
                 <div className="space-y-4">
                   {[
@@ -181,7 +181,7 @@ export default function AppDevelopment() {
               </div>
 
               <div
-                className="card rounded-[24px] p-6 text-center"
+                className="card rounded-[28px] p-6 text-center"
                 style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.07), rgba(139,92,246,0.05))', border: '1px solid rgba(245,158,11,0.12)' }}
               >
                 <p className="text-slate-400 text-sm mb-4">Have an app idea? Let's build it together.</p>
@@ -195,7 +195,7 @@ export default function AppDevelopment() {
 
           {/* CTA */}
           <div
-            className="rounded-[28px] p-10 text-center"
+            className="rounded-[32px] p-10 text-center"
             style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.07), rgba(16,185,129,0.05))', border: '1px solid rgba(139,92,246,0.12)' }}
           >
             <h2 className="font-display font-bold text-3xl text-white mb-3">Not enough for your seo needs?</h2>

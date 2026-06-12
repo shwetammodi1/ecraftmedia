@@ -59,17 +59,12 @@ function Step({ s, i }: { s: typeof steps[0]; i: number }) {
       {/* Number circle */}
       <div className="flex flex-col items-center text-center">
         <div
-          className="relative z-10 w-10 h-10 rounded-full flex items-center justify-center mb-4 text-[13px] font-display font-black transition-all duration-300 group-hover:scale-110"
+          className="relative z-10 w-11 h-11 rounded-full flex items-center justify-center mb-4 text-[13px] font-display font-black transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1"
           style={{
-            background: 'rgba(245,158,11,0.08)',
-            border: '1px solid rgba(245,158,11,0.2)',
+            background: 'linear-gradient(135deg, rgba(245,158,11,0.16), rgba(245,158,11,0.06))',
+            border: '1px solid rgba(245,158,11,0.22)',
             color: '#F59E0B',
-          }}
-          onMouseEnter={e => {
-            (e.currentTarget as HTMLDivElement).style.background = 'rgba(245,158,11,0.16)'
-          }}
-          onMouseLeave={e => {
-            (e.currentTarget as HTMLDivElement).style.background = 'rgba(245,158,11,0.08)'
+            boxShadow: '0 8px 20px -8px rgba(245,158,11,0.35)',
           }}
         >
           {s.n}
@@ -96,11 +91,11 @@ export default function WorkProcess() {
   }, [])
 
   return (
-    <section id="process" className="py-28 px-4">
+    <section id="process" className="py-32 px-4">
       <div className="max-w-[1320px] mx-auto">
 
         {/* Header */}
-        <div ref={ref} className="fade-up mb-16">
+        <div ref={ref} className="fade-up mb-20">
           <div className="section-tag mb-5">How We Work</div>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <h2 className="font-display font-black text-4xl sm:text-5xl text-white leading-tight">
@@ -114,10 +109,7 @@ export default function WorkProcess() {
         </div>
 
         {/* Steps */}
-        <div
-          className="rounded-2xl p-8 lg:p-12"
-          style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
-        >
+        <div className="card rounded-[28px] p-8 lg:p-12">
           <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-10 xl:gap-4">
             {steps.map((s, i) => (
               <Step key={s.n} s={s} i={i} />

@@ -80,8 +80,7 @@ function ReasonCard({ r, delay }: { r: typeof reasons[0]; delay: number }) {
   return (
     <div
       ref={ref}
-      className="fade-up p-6 rounded-2xl transition-all duration-300 group"
-      style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
+      className="card hover-lift fade-up p-7 rounded-[24px] group"
       onMouseEnter={e => {
         const el = e.currentTarget as HTMLDivElement
         el.style.borderColor = `${r.color}28`
@@ -119,7 +118,7 @@ export default function WhyChooseUs() {
   }, [])
 
   return (
-    <section id="about" className="py-28 px-4 relative overflow-hidden" style={{ background: 'var(--page-bg-alt)' }}>
+    <section id="about" className="py-32 px-4 relative overflow-hidden" style={{ background: 'var(--page-bg-alt)' }}>
       <div
         className="orb w-[400px] h-[400px] top-0 right-0 opacity-[0.06]"
         style={{ background: 'radial-gradient(circle, #8B5CF6, transparent)' }}

@@ -56,7 +56,7 @@ export default function Contacts() {
 
   return (
     <main className="min-h-screen bg-base text-white">
-      <section className="relative overflow-hidden px-4 py-24">
+      <section className="relative overflow-hidden px-4 py-32">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(16,185,129,0.1),_transparent_35%)] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(245,158,11,0.06),_transparent_35%)] pointer-events-none" />
 
@@ -83,7 +83,7 @@ export default function Contacts() {
             {/* Left — contact info */}
             <div className="space-y-4">
               {/* Contact methods */}
-              <div className="card rounded-2xl p-6">
+              <div className="card rounded-[20px] p-6">
                 <h2 className="font-display font-bold text-[17px] text-white mb-5">Let's Connect</h2>
                 <div className="space-y-3">
                   {contactMethods.map(c => (
@@ -121,7 +121,7 @@ export default function Contacts() {
               </div>
 
               {/* Working hours */}
-              <div className="card rounded-2xl p-5">
+              <div className="card rounded-[20px] p-5">
                 <h3 className="font-semibold text-white text-[13px] mb-4">Working Hours</h3>
                 <div className="space-y-3 text-[13px]">
                   {[
@@ -139,7 +139,7 @@ export default function Contacts() {
 
               {/* Free strategy call */}
               <div
-                className="rounded-2xl p-6"
+                className="rounded-[20px] p-6"
                 style={{ background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.14)' }}
               >
                 <div className="font-display font-bold text-white text-[17px] mb-2">Free Strategy Call</div>
@@ -157,7 +157,7 @@ export default function Contacts() {
             <div>
               {status === 'sent' ? (
                 <div
-                  className="card rounded-2xl p-12 flex flex-col items-center justify-center text-center min-h-[500px]"
+                  className="card rounded-[20px] p-12 flex flex-col items-center justify-center text-center min-h-[500px]"
                   style={{ background: 'rgba(16,185,129,0.04)', border: '1px solid rgba(16,185,129,0.18)' }}
                 >
                   <div
@@ -176,7 +176,7 @@ export default function Contacts() {
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  className="card rounded-2xl p-7 space-y-5"
+                  className="card rounded-[20px] p-7 space-y-5"
                 >
                   <div>
                     <h2 className="font-display font-bold text-2xl text-white mb-1">Send Message</h2>
