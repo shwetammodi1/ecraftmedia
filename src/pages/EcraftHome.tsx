@@ -4,6 +4,7 @@ import Hero from '../components/ecraft/Hero'
 import Marquee from '../components/ecraft/Marquee'
 import StatsBar from '../components/ecraft/StatsBar'
 import Services from '../components/ecraft/Services'
+import VideoShowcase from '../components/ecraft/VideoShowcase'
 import Portfolio from '../components/ecraft/Portfolio'
 import SeoPackages from '../components/ecraft/SeoPackages'
 import WebDevPackage from '../components/ecraft/WebDevPackage'
@@ -25,6 +26,7 @@ export default function EcraftHome() {
         <Marquee />
         <StatsBar />
         <Services />
+        <VideoShowcase />
         <Portfolio />
         <SeoPackages />
         <WebDevPackage />
