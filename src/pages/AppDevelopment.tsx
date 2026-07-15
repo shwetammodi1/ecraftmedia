@@ -64,16 +64,16 @@ export default function AppDevelopment() {
             {/* Left — content */}
             <div className="space-y-8 text-slate-300 leading-relaxed text-base">
               <p>
-                Ecraftmedia have the expert and experience professional team to create mobile application and perform various test operation to make it more compact and secure. Mobile App is something that exposes your brand popularity within a limited period of time in wide areas and the completion would be huge and it is really important to initiate and implement some unique identity so that it will be easy to grab the attention of business man.
+                Ecraft Media has a dedicated team of experienced mobile app developers who build secure, scalable, and high-performance applications for both iOS and Android platforms. We handle everything from concept and design to development, testing, and deployment.
               </p>
               <p>
-                You should be very careful before taking decision and make sure that application should be versatile and user friendly to access.
+                Whether you need a consumer-facing app, an enterprise solution, or a complex platform with real-time features, we deliver products that users love — on time and within budget.
               </p>
               <p>
-                For the past few years, our expertise are focusing more on development of Mobile Application which is playing the major part in the valuable digital market. We have specialized testing team to operate finally once the coding operations are updated and ready for deployment in play store or app store.
+                Our apps are built with clean architecture, rigorous QA, and a focus on performance across all devices. We've launched 50+ apps across 300+ industry verticals with an average Play Store rating of 4.8★.
               </p>
               <p>
-                Currently there are more than <strong className="text-white">300 verticals</strong> are run under mobile application like Cab booking, Weather Tracking, Ecommerce shopping etc…
+                We serve over <strong className="text-white">300 industry verticals</strong> — from Cab Booking and Food Delivery to HealthTech and FinTech.
               </p>
 
               {/* Verticals grid */}

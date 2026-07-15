@@ -43,13 +43,13 @@ export default function DigitalMarketing() {
             {/* Left — content */}
             <div className="space-y-8 text-slate-300 leading-relaxed text-base">
               <p>
-                Ecraftmedia is integrate with all digital marketing strategies which help to enhance your business and become more visible and generate leads at best price. Applying the strategies of various online channels, we adopt the best and latest practices of digital marketing in all countries to achieve maximum ROI for your business and help your brand grown online.
+                Ecraft Media is a full-spectrum digital marketing agency helping brands across India and globally grow their online presence, generate quality leads, and achieve measurable ROI. We combine data-driven strategy with creative execution to deliver results that matter.
               </p>
               <p>
-                We support digital marketing service in all part of the world where you can find wide creativity and novelty in each and every part of work. As a web design company, Ecraftmedia supports huge part in development of website and performing testing operation with various technologies.
+                From SEO and paid advertising to social media and content marketing, we leverage the right mix of channels to reach your target audience at every stage of the buyer journey — turning awareness into conversions and conversions into loyalty.
               </p>
               <p>
-                We mainly target to transform dream comes to reality as well as help the users to access in friendly manner. Our company is well known and most popular in India and other part of the countries for launching websites in multiple platforms in standard manner.
+                With over 10 years of experience and 500+ successful campaigns, Ecraft Media is trusted by businesses across India, UAE, UK, and beyond to drive consistent digital growth.
               </p>
 
               {/* Channel grid */}
