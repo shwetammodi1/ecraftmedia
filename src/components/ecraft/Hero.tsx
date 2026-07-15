@@ -69,7 +69,7 @@ export default function Hero() {
       <video
         autoPlay muted loop playsInline
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-        style={{ opacity: 0.045, filter: 'blur(2px) saturate(0.6)' }}
+        style={{ opacity: 0.18, filter: 'blur(0px) saturate(0.8) brightness(0.6)' }}
       >
         <source src="/showcase.mp4" type="video/mp4" />
       </video>
