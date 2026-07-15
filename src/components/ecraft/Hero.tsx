@@ -1,5 +1,34 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTheme } from '../../contexts/ThemeContext'
+
+// Typewriter hook
+const SERVICES = ['SEO Experts', 'Web Developers', 'App Builders', 'Growth Hackers', 'Digital Marketers']
+function useTypewriter(words: string[], speed = 90, pause = 1800) {
+  const [displayed, setDisplayed] = useState('')
+  const [wordIdx, setWordIdx]     = useState(0)
+  const [charIdx, setCharIdx]     = useState(0)
+  const [deleting, setDeleting]   = useState(false)
+  useEffect(() => {
+    const current = words[wordIdx]
+    const delay = deleting ? speed / 2 : charIdx === current.length ? pause : speed
+    const t = setTimeout(() => {
+      if (!deleting && charIdx < current.length) {
+        setDisplayed(current.slice(0, charIdx + 1))
+        setCharIdx(c => c + 1)
+      } else if (!deleting && charIdx === current.length) {
+        setDeleting(true)
+      } else if (deleting && charIdx > 0) {
+        setDisplayed(current.slice(0, charIdx - 1))
+        setCharIdx(c => c - 1)
+      } else {
+        setDeleting(false)
+        setWordIdx(i => (i + 1) % words.length)
+      }
+    }, delay)
+    return () => clearTimeout(t)
+  }, [charIdx, deleting, wordIdx, words, speed, pause])
+  return displayed
+}
 
 const clientLogos = [
   '/A1.png',
@@ -20,6 +49,7 @@ export default function Hero() {
   const { theme } = useTheme()
   const isLight = theme === 'light'
   const logoFilter = isLight ? 'grayscale(1) brightness(0.35) contrast(1.2)' : 'grayscale(1) brightness(2.5) contrast(0.9)'
+  const typed = useTypewriter(SERVICES)
 
   useEffect(() => {
     const t = setTimeout(() => ref.current?.classList.add('in-view'), 80)
@@ -35,6 +65,15 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{ background: 'var(--page-bg)' }}
     >
+      {/* Ambient video background */}
+      <video
+        autoPlay muted loop playsInline
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        style={{ opacity: 0.045, filter: 'blur(2px) saturate(0.6)' }}
+      >
+        <source src="/showcase.mp4" type="video/mp4" />
+      </video>
+
       {/* Mesh gradient backdrop */}
       <div className="mesh-gradient absolute inset-0 pointer-events-none" />
 
@@ -67,7 +106,7 @@ export default function Hero() {
 
             {/* Headline */}
             <h1
-              className="font-display font-black leading-[1.04] tracking-[-0.02em] mb-6"
+              className="font-display font-black leading-[1.04] tracking-[-0.02em] mb-4"
               style={{ fontSize: 'clamp(2.75rem, 5.5vw, 4.75rem)' }}
             >
               <span className="text-white">Grow Your Business</span>
@@ -77,6 +116,21 @@ export default function Hero() {
               <br />
               <span className="text-white">Strategies</span>
             </h1>
+
+            {/* Typed service line */}
+            <div className="flex items-center gap-2 mb-6 h-8">
+              <span className="text-slate-500 text-base font-medium">We are your</span>
+              <span
+                className="font-display font-bold text-base"
+                style={{ color: '#F59E0B', minWidth: 180, display: 'inline-block' }}
+              >
+                {typed}
+                <span
+                  className="inline-block w-[2px] h-[1.1em] ml-0.5 align-middle rounded-full"
+                  style={{ background: '#F59E0B', animation: 'blink 1s step-end infinite', verticalAlign: 'text-bottom' }}
+                />
+              </span>
+            </div>
 
             {/* Body */}
             <p className="text-slate-400 text-lg leading-relaxed max-w-[520px] mb-10">

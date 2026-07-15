@@ -14,6 +14,8 @@ import WorkProcess from '../components/ecraft/WorkProcess'
 import ContactForm from '../components/ecraft/ContactForm'
 import Footer from '../components/ecraft/Footer'
 import WhatsAppButton from '../components/ecraft/WhatsAppButton'
+import StickyCTA from '../components/ecraft/StickyCTA'
+import CaseStudy from '../components/ecraft/CaseStudy'
 
 export default function EcraftHome() {
   useScrollAnimateChildren('.fade-up, .fade-in')
@@ -28,6 +30,7 @@ export default function EcraftHome() {
         <Services />
         <VideoShowcase />
         <Portfolio />
+        <CaseStudy />
         <SeoPackages />
         <WebDevPackage />
         <Testimonials />
@@ -37,6 +40,7 @@ export default function EcraftHome() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <StickyCTA />
     </div>
   )
 }

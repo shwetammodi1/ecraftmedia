@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState, useCallback } from 'react'
 
 const testimonials = [
   {
@@ -120,17 +120,31 @@ function Card({ t, delay }: { t: typeof testimonials[0]; delay: number }) {
 }
 
 export default function Testimonials() {
-  const ref = useRef<HTMLDivElement>(null)
+  const headRef = useRef<HTMLDivElement>(null)
+  const [active, setActive] = useState(0)
+  const total = testimonials.length
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  const startTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current)
+    timerRef.current = setInterval(() => setActive(a => (a + 1) % total), 4500)
+  }, [total])
+
   useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) el.classList.add('in-view') },
-      { threshold: 0.1 }
-    )
-    obs.observe(el)
-    return () => obs.disconnect()
+    const el = headRef.current; if (!el) return
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) el.classList.add('in-view') }, { threshold: 0.1 })
+    obs.observe(el); return () => obs.disconnect()
   }, [])
+
+  useEffect(() => { startTimer(); return () => { if (timerRef.current) clearInterval(timerRef.current) } }, [startTimer])
+
+  const go = (i: number) => { setActive(i); startTimer() }
+  const prev = () => go((active - 1 + total) % total)
+  const next = () => go((active + 1) % total)
+
+  // Show 3 at a time (center = active)
+  const visible = [-1, 0, 1].map(offset => testimonials[(active + offset + total) % total])
+  const offsets = [-1, 0, 1]
 
   return (
     <section id="testimonials" className="py-32 px-4 relative overflow-hidden">
@@ -140,7 +154,7 @@ export default function Testimonials() {
       />
 
       <div className="max-w-[1320px] mx-auto relative z-10">
-        <div ref={ref} className="fade-up mb-20">
+        <div ref={headRef} className="fade-up mb-16">
           <div className="section-tag mb-5">Client Love</div>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <h2 className="font-display font-black text-4xl sm:text-5xl text-white leading-tight">
@@ -148,10 +162,7 @@ export default function Testimonials() {
               <span className="text-gold">Growing Businesses</span>
             </h2>
             <div className="flex items-center gap-6 flex-shrink-0">
-              {[
-                { v: '4.9/5', l: 'Rating' },
-                { v: '98%', l: 'Recommend' },
-              ].map(s => (
+              {[{ v: '4.9/5', l: 'Rating' }, { v: '98%', l: 'Recommend' }].map(s => (
                 <div key={s.l} className="text-center">
                   <div className="font-display font-black text-2xl text-white">{s.v}</div>
                   <div className="text-[11px] text-slate-500 font-medium mt-0.5 uppercase tracking-wider">{s.l}</div>
@@ -161,9 +172,59 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {testimonials.map((t, i) => (
-            <Card key={t.name} t={t} delay={i * 70} />
+        {/* Carousel */}
+        <div className="relative">
+          <div className="grid sm:grid-cols-3 gap-4 items-stretch">
+            {visible.map((t, idx) => (
+              <div
+                key={t.name + offsets[idx]}
+                onClick={() => go((active + offsets[idx] + total) % total)}
+                className="cursor-pointer"
+                style={{
+                  transition: 'opacity 0.4s ease, transform 0.4s cubic-bezier(.22,1,.36,1)',
+                  opacity: offsets[idx] === 0 ? 1 : 0.45,
+                  transform: offsets[idx] === 0 ? 'scale(1)' : 'scale(0.97)',
+                }}
+              >
+                <Card t={t} delay={0} />
+              </div>
+            ))}
+          </div>
+
+          {/* Nav arrows */}
+          <button
+            onClick={prev}
+            className="absolute -left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hidden sm:flex"
+            style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
+          >
+            <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={next}
+            className="absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hidden sm:flex"
+            style={{ background: 'var(--card-bg)', border: '1px solid var(--border)' }}
+          >
+            <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Dots */}
+        <div className="flex items-center justify-center gap-2 mt-8">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => go(i)}
+              className="rounded-full transition-all duration-300"
+              style={{
+                width: i === active ? 24 : 8,
+                height: 8,
+                background: i === active ? '#F59E0B' : 'rgba(255,255,255,0.15)',
+              }}
+            />
           ))}
         </div>
       </div>
