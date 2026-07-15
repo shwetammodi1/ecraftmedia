@@ -100,7 +100,6 @@ function PlanCard({ p, delay }: { p: typeof plans[0]; delay: number }) {
       {/* Card */}
       <div
         onMouseMove={onMouseMove}
-        onMouseLeave={onMouseLeave}
         className="relative overflow-hidden rounded-[28px] p-7 flex flex-col"
         style={{
           background: isPopular

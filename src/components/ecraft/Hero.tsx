@@ -30,14 +30,6 @@ function useTypewriter(words: string[], speed = 90, pause = 1800) {
   return displayed
 }
 
-const clientLogos = [
-  '/A1.png',
-  '/A3.png',
-  '/A4.png',
-  '/free-press-j.png',
-  '/A7.png',
-]
-
 const metrics = [
   { label: 'Organic Traffic', value: '+320%', width: '82%', color: '#F59E0B' },
   { label: 'Domain Authority', value: '72 / 100', width: '72%', color: '#8B5CF6' },
@@ -48,7 +40,6 @@ export default function Hero() {
   const ref = useRef<HTMLDivElement>(null)
   const { theme } = useTheme()
   const isLight = theme === 'light'
-  const logoFilter = isLight ? 'grayscale(1) brightness(0.35) contrast(1.2)' : 'grayscale(1) brightness(2.5) contrast(0.9)'
   const typed = useTypewriter(SERVICES)
 
   useEffect(() => {

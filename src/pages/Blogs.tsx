@@ -46,7 +46,7 @@ const onPageFactors = [
   {
     n: 9,
     title: 'Website Errors',
-    'User experience is crucial for rankings, so resolve all the 404, 500 errors. You can also use the 301 redirection for the broken links to pass the link juice or delete if it is not anywhere linked to the sites.'
+    desc: 'User experience is crucial for rankings, so resolve all the 404, 500 errors. You can also use the 301 redirection for the broken links to pass the link juice or delete if it is not anywhere linked to the sites.'
   },
   {
     n: 10,
