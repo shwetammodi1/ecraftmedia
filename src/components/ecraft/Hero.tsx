@@ -69,10 +69,18 @@ export default function Hero() {
       <video
         autoPlay muted loop playsInline
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-        style={{ opacity: 0.18, filter: 'blur(0px) saturate(0.8) brightness(0.6)' }}
+        style={{ opacity: 0.28, filter: 'saturate(0.75)' }}
       >
         <source src="/showcase.mp4" type="video/mp4" />
       </video>
+
+      {/* Vignette — fades video at all edges so center pops */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[1]"
+        style={{
+          background: 'radial-gradient(ellipse 80% 80% at 50% 50%, transparent 30%, var(--page-bg) 100%)',
+        }}
+      />
 
       {/* Mesh gradient backdrop */}
       <div className="mesh-gradient absolute inset-0 pointer-events-none" />
@@ -176,23 +184,6 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* Trust logos */}
-            <div>
-              <p className="text-[11px] uppercase tracking-widest text-slate-600 font-semibold mb-4">
-                Trusted by leading brands
-              </p>
-              <div className="flex flex-wrap items-center gap-5">
-                {clientLogos.map((src, i) => (
-                  <img
-                    key={i}
-                    src={src}
-                    alt="client"
-                    className="h-7 w-auto object-contain opacity-40 hover:opacity-80 transition-opacity duration-300"
-                    style={{ filter: logoFilter }}
-                  />
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* ── Right — SEO Performance Card ── */}
