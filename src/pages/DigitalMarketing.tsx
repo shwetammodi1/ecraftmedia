@@ -67,11 +67,11 @@ export default function DigitalMarketing() {
             {/* Right — CTA card */}
             <aside className="space-y-5">
               {/* Visual */}
-              <div className="rounded-[32px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
+              <div className="rounded-[32px] overflow-hidden">
                 <img
-                  src="https://ecraftmedia.com/wp-content/uploads/2018/06/1-2.jpg"
+                  src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80"
                   alt="Digital Marketing"
-                  className="w-full h-auto object-contain rounded-[18px]"
+                  className="w-full h-auto object-cover rounded-[18px]"
                 />
               </div>
 

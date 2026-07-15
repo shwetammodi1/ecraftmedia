@@ -1,18 +1,18 @@
 import { useTheme } from '../../contexts/ThemeContext'
 
 const logos = [
-  { src: 'https://ecraftmedia.com/wp-content/uploads/2015/11/A1.png', alt: 'Client 1' },
-  { src: 'https://ecraftmedia.com/wp-content/uploads/2015/11/A3.png', alt: 'Client 3' },
-  { src: 'https://ecraftmedia.com/wp-content/uploads/2015/11/A4.png', alt: 'Client 4' },
-  { src: 'https://ecraftmedia.com/wp-content/uploads/2015/11/A6.png', alt: 'Client 6' },
-  { src: 'https://ecraftmedia.com/wp-content/uploads/2015/11/A7.png', alt: 'Client 7' },
-  { src: 'https://ecraftmedia.com/wp-content/uploads/2015/11/A9.png', alt: 'Client 9' },
-  { src: 'https://ecraftmedia.com/wp-content/uploads/2015/11/10pl-new-logo.png', alt: '10PL' },
-  { src: 'https://ecraftmedia.com/wp-content/uploads/2015/11/Untitled-3.png', alt: 'Client' },
-  { src: 'https://ecraftmedia.com/wp-content/uploads/2022/08/A1-copy-1.png', alt: 'Client' },
-  { src: 'https://ecraftmedia.com/wp-content/uploads/2022/08/A112.png', alt: 'Client' },
-  { src: 'https://ecraftmedia.com/wp-content/uploads/2022/09/free-press-j.png', alt: 'Free Press' },
-  { src: 'https://ecraftmedia.com/wp-content/uploads/2021/03/liberty.jpg', alt: 'Liberty' },
+  { src: '/A1.png', alt: 'Client 1' },
+  { src: '/A3.png', alt: 'Client 3' },
+  { src: '/A4.png', alt: 'Client 4' },
+  { src: '/A6.png', alt: 'Client 6' },
+  { src: '/A7.png', alt: 'Client 7' },
+  { src: '/A9.png', alt: 'Client 9' },
+  { src: '/10pl-new-logo.png', alt: '10PL' },
+  { src: '/Untitled-3.png', alt: 'Client' },
+  { src: '/A1-copy-1.png', alt: 'Client' },
+  { src: '/A112.png', alt: 'Client' },
+  { src: '/free-press-j.png', alt: 'Free Press' },
+  { src: '/liberty.jpg', alt: 'Liberty' },
 ]
 
 export default function ClientLogos() {

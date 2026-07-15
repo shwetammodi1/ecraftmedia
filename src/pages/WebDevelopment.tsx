@@ -87,11 +87,11 @@ export default function WebDevelopment() {
             {/* Left */}
             <div className="space-y-8">
               {/* Visual */}
-              <div className="rounded-[28px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
+              <div className="rounded-[28px] overflow-hidden">
                 <img
-                  src="https://ecraftmedia.com/wp-content/uploads/2018/06/Custom-Web-Development.png"
+                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80"
                   alt="Custom Web Development"
-                  className="w-full h-auto object-contain"
+                  className="w-full h-auto object-cover rounded-[18px]"
                 />
               </div>
 

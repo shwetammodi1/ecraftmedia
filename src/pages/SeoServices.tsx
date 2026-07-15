@@ -79,11 +79,11 @@ export default function SeoServices() {
             {/* Left — content */}
             <div className="space-y-8">
               {/* Visual */}
-              <div className="rounded-[28px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
+              <div className="rounded-[28px] overflow-hidden">
                 <img
-                  src="https://ecraftmedia.com/wp-content/uploads/2015/11/SEO-High-Quality-PNG.png"
+                  src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=600&q=80"
                   alt="SEO Services"
-                  className="w-full h-auto object-contain"
+                  className="w-full h-auto object-cover rounded-[18px]"
                 />
               </div>
 
@@ -124,11 +124,11 @@ export default function SeoServices() {
             {/* Right — plans sidebar */}
             <div className="space-y-5">
               {/* Visual */}
-              <div className="rounded-[28px] overflow-hidden p-6" style={{ background: '#FFFFFF' }}>
+              <div className="rounded-[28px] overflow-hidden">
                 <img
-                  src="https://ecraftmedia.com/wp-content/uploads/2018/05/seo-slide.png"
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80"
                   alt="SEO Growth"
-                  className="w-full h-auto object-contain"
+                  className="w-full h-auto object-cover rounded-[18px]"
                 />
               </div>
 

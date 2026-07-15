@@ -63,7 +63,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center flex-shrink-0">
             <img
-              src="https://ecraftmedia.com/wp-content/uploads/2018/05/ecraft_logo1.png"
+              src="/ecraft_logo1.png"
               alt="Ecraft Media"
               className="h-8 w-auto object-contain flex-shrink-0 transition-all duration-300"
               style={{ filter: isLight ? 'none' : 'brightness(0) invert(1)' }}

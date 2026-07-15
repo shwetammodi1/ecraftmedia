@@ -2,11 +2,11 @@ import { useEffect, useRef } from 'react'
 import { useTheme } from '../../contexts/ThemeContext'
 
 const clientLogos = [
-  'https://ecraftmedia.com/wp-content/uploads/2015/11/A1.png',
-  'https://ecraftmedia.com/wp-content/uploads/2015/11/A3.png',
-  'https://ecraftmedia.com/wp-content/uploads/2015/11/A4.png',
-  'https://ecraftmedia.com/wp-content/uploads/2022/09/free-press-j.png',
-  'https://ecraftmedia.com/wp-content/uploads/2015/11/A7.png',
+  '/A1.png',
+  '/A3.png',
+  '/A4.png',
+  '/free-press-j.png',
+  '/A7.png',
 ]
 
 const metrics = [
@@ -213,7 +213,7 @@ export default function Hero() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <img
-                    src="https://ecraftmedia.com/wp-content/uploads/2018/05/ecraft_logo1.png"
+                    src="/ecraft_logo1.png"
                     alt="Ecraft"
                     className="h-5 w-auto object-contain opacity-60"
                     style={{ filter: isLight ? 'none' : 'brightness(0) invert(1)' }}

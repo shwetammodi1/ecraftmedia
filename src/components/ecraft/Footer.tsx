@@ -124,7 +124,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link to="/" className="inline-flex mb-6 block">
               <img
-                src="https://ecraftmedia.com/wp-content/uploads/2018/05/ecraft_logo1.png"
+                src="/ecraft_logo1.png"
                 alt="Ecraft Media"
                 className="h-9 w-auto object-contain transition-all duration-300"
                 style={{ filter: isLight ? 'none' : 'brightness(0) invert(1)' }}
