@@ -16,6 +16,14 @@
   from { opacity: 0; transform: translateX(-50%) translateY(20px); }
   to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
+@keyframes pulse-badge {
+  0%, 100% { box-shadow: 0 4px 20px var(--badge-color, rgba(245,158,11,0.4)); }
+  50%       { box-shadow: 0 4px 32px var(--badge-color, rgba(245,158,11,0.7)); }
+}
+@keyframes shimmer-card {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
 
 /* ── Theme CSS variables ── */
 :root {
