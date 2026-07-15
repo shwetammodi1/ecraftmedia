@@ -65,23 +65,6 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{ background: 'var(--page-bg)' }}
     >
-      {/* Ambient video background */}
-      <video
-        autoPlay muted loop playsInline
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-        style={{ opacity: 0.28, filter: 'saturate(0.75)' }}
-      >
-        <source src="/showcase.mp4" type="video/mp4" />
-      </video>
-
-      {/* Vignette — fades video at all edges so center pops */}
-      <div
-        className="absolute inset-0 pointer-events-none z-[1]"
-        style={{
-          background: 'radial-gradient(ellipse 80% 80% at 50% 50%, transparent 30%, var(--page-bg) 100%)',
-        }}
-      />
-
       {/* Mesh gradient backdrop */}
       <div className="mesh-gradient absolute inset-0 pointer-events-none" />
 
